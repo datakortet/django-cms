@@ -8,19 +8,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 14:54+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Report-Msgid-Bugs-To: https://github.com/divio/django-cms/issues\n"
+"POT-Creation-Date: 2012-09-19 14:44+0200\n"
+"PO-Revision-Date: 2013-01-15 12:16+0100\n"
+"Last-Translator: Erlend Dalen <erlend.dalen@gmail.com>\n"
 "Language-Team: divio.ch <developers@divio.ch>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Poedit-Country: SWITZERLAND\n"
-"X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: cms_toolbar.py:70
 msgid "Edit mode"
@@ -291,6 +290,8 @@ msgstr "Databasefeil"
 msgid ""
 "Error! You don't have permissions to move this page. Please reload the page"
 msgstr ""
+"Feil! Du har ikke rettigheter til å flytte denne siden. Vennligst last inn "
+"siden på nytt"
 
 #: admin/pageadmin.py:880
 msgid "Page was successfully approved."
@@ -747,7 +748,7 @@ msgstr "tilknyttet meny"
 
 #: models/pagemodel.py:67
 msgid "is published"
-msgstr "er poblisert"
+msgstr "er publisert"
 
 #: models/pagemodel.py:69
 msgid "The template used to render the content."
@@ -934,15 +935,15 @@ msgstr "Google kart"
 
 #: plugins/googlemap/cms_plugins.py:19
 msgid "Advanced"
-msgstr ""
+msgstr "Avansert"
 
 #: plugins/googlemap/forms.py:23
 msgid "Must be a positive integer followed by “px” or “%”."
-msgstr ""
+msgstr "\"\"Må være et positivt heltall etterfulgt av \"px\" eller \"%\"."
 
 #: plugins/googlemap/forms.py:26
 msgid "Must be a positive integer followed by “px”."
-msgstr ""
+msgstr "Må være et positivt heltall etterfulgt av \"px\"."
 
 #: plugins/googlemap/models.py:10
 msgid "map title"
@@ -966,7 +967,7 @@ msgstr "tilleggsinnhold"
 
 #: plugins/googlemap/models.py:19
 msgid "Displayed under address in the bubble."
-msgstr ""
+msgstr "Vises under adressen i boblen."
 
 #: plugins/googlemap/models.py:21
 msgid "zoom level"
@@ -998,11 +999,11 @@ msgstr "ruteplanlegger"
 
 #: plugins/googlemap/models.py:37
 msgid "Plugin width (in pixels or percent)."
-msgstr ""
+msgstr "Plugin bredde (i pixler eller prosent)."
 
 #: plugins/googlemap/models.py:39
 msgid "Plugin height (in pixels)."
-msgstr ""
+msgstr "Plugin høyde (i pixler)."
 
 #: plugins/googlemap/models.py:47
 msgid "Map"
@@ -1067,23 +1068,23 @@ msgstr "En epost hat prioritet oven en tekstlenke"
 
 #: plugins/link/models.py:14
 msgid "target"
-msgstr ""
+msgstr "mål"
 
 #: plugins/link/models.py:15
 msgid "same window"
-msgstr ""
+msgstr "samme vindu"
 
 #: plugins/link/models.py:16
 msgid "new window"
-msgstr ""
+msgstr "nytt vindu"
 
 #: plugins/link/models.py:17
 msgid "parent window"
-msgstr ""
+msgstr "foreldrevindu"
 
 #: plugins/link/models.py:18
 msgid "topmost frame"
-msgstr ""
+msgstr "øverste ramme"
 
 #: plugins/picture/cms_plugins.py:9
 msgid "Picture"
@@ -1424,7 +1425,7 @@ msgstr "Logg inn til administreringen her <a href=\"%(login_url)s\">here</a>."
 #: templates/admin/cms/mail/base.txt:8
 #, python-format
 msgid "Login url: %(login_url)s"
-msgstr ""
+msgstr "Url til pålogg: %(login_url)s"
 
 #: templates/admin/cms/mail/page_user_change.html:7
 #: templates/admin/cms/mail/page_user_change.txt:5
@@ -1503,7 +1504,7 @@ msgstr[1] "Vennligst rett opp feilene under"
 
 #: templates/admin/cms/page/change_form.html:151
 msgid "All permissions"
-msgstr "Anne rettigheter"
+msgstr "Alle rettigheter"
 
 #: templates/admin/cms/page/change_form.html:152
 #: templates/admin/cms/page/change_form.html:164
@@ -1753,7 +1754,7 @@ msgstr "En gammel versjon av en plugin kan ikke lagres!"
 
 #: templates/admin/cms/page/plugin_forms_ok.html:26
 msgid "Your changes to this plugin have not been saved."
-msgstr ""
+msgstr "Dine endringer for denne plugin har ikke blitt lagret."
 
 #: templates/admin/cms/page/plugin_forms_ok.html:26
 msgid "Plugin saved successfully."
@@ -1890,35 +1891,35 @@ msgstr ""
 
 #: test_utils/cli.py:100 test_utils/cli.py:107
 msgid "English"
-msgstr ""
+msgstr "Engelsk"
 
 #: test_utils/cli.py:101 test_utils/cli.py:108
 msgid "French"
-msgstr ""
+msgstr "Fransk"
 
 #: test_utils/cli.py:102 test_utils/cli.py:109
 msgid "German"
-msgstr ""
+msgstr "Tysk"
 
 #: test_utils/cli.py:103 test_utils/cli.py:110
 msgid "Brazil"
-msgstr ""
+msgstr "Braziliansk"
 
 #: test_utils/cli.py:104 test_utils/cli.py:111
 msgid "Dutch"
-msgstr ""
+msgstr "Nederlandsk"
 
 #: test_utils/cli.py:128
 msgid "two columns"
-msgstr ""
+msgstr "to kolonner"
 
 #: test_utils/cli.py:129
 msgid "three columns"
-msgstr ""
+msgstr "tre kolonner"
 
 #: test_utils/cli.py:130
 msgid "navigation examples"
-msgstr ""
+msgstr "eksempler på navigasjon"
 
 #: test_utils/cli.py:136
 msgid "sidebar column"
@@ -1934,43 +1935,43 @@ msgstr "background color"
 
 #: test_utils/project/placeholderapp/cms_plugins.py:7
 msgid "Test Plugin"
-msgstr ""
+msgstr "Test plugin"
 
 #: test_utils/project/pluginapp/plugins/extra_context/cms_plugins.py:9
 msgid "Extra Context"
-msgstr ""
+msgstr "Ekstra innhold"
 
 #: test_utils/project/pluginapp/plugins/manytomany_rel/cms_plugins.py:13
 msgid "Articles"
-msgstr ""
+msgstr "Artikler"
 
 #: test_utils/project/sampleapp/cms_app.py:7
 msgid "Sample App"
-msgstr ""
+msgstr "Demonstrasjons applikasjon"
 
 #: test_utils/project/sampleapp/menu.py:16
 msgid "sample root page"
-msgstr ""
+msgstr "Demo rot side"
 
 #: test_utils/project/sampleapp/menu.py:17
 msgid "sample settings page"
-msgstr ""
+msgstr "Demoside for instillinger"
 
 #: test_utils/project/sampleapp/menu.py:18
 msgid "sample account page"
-msgstr ""
+msgstr "Demoside for konto"
 
 #: test_utils/project/sampleapp/menu.py:19
 msgid "sample my profile page"
-msgstr ""
+msgstr "Demoside for min profil"
 
 #: test_utils/project/sampleapp/menu.py:31
 msgid "Static Menu"
-msgstr ""
+msgstr "Statisk meny"
 
 #: test_utils/project/sampleapp/menu.py:47
 msgid "Static Menu2"
-msgstr ""
+msgstr "Statisk meny2"
 
 #: utils/mail.py:37
 msgid "CMS - your user account was created."
@@ -2004,7 +2005,11 @@ msgid ""
 msgid_plural ""
 "Pages %(pages)s have the same url '%(url)s' as current page \"%(instance)s\"."
 msgstr[0] ""
+"Side %(pages)s har den samme url '%(url)s' som den nåværende siden "
+"\"%(instance)s\"."
 msgstr[1] ""
+"Sidene %(pages)s har de samme urlene '%(url)s' som den nåværende siden "
+"\"%(instance)s\"."
 
 #~ msgid "move"
 #~ msgstr "move request"
