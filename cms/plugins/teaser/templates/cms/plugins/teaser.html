@@ -6,6 +6,6 @@
 	{% if link %}</a>{% endif %}
 {% endif %}
 {% if object.description %}
-<p>{{ object.description }}</p>
+<p>{{ object.description|safe }}</p>
 {% endif %}
 {% if link %}<a href="{{ link }}">{% trans "more" %} &#187;</a>{% endif %}
