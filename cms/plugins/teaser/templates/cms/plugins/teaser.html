@@ -1,11 +1,22 @@
 {% load i18n %}
+
 <h2>{{ object.title }}</h2>
 {% if object.image %}
-	{% if link %}<a href="{{ link }}">{% endif %}
-		<img src="{{ object.image.url }}" alt="{{ object.title }}"/>
-	{% if link %}</a>{% endif %}
+  <div class="span2">
+    {% if link %}<a href="{{ link }}">{% endif %}
+      <img src="{{ object.image.url }}" alt="{{ object.title }}"/>
+    {% if link %}</a>{% endif %}
+  </div>
 {% endif %}
 {% if object.description %}
-<p>{{ object.description|safe }}</p>
+  <div class="span6">
+    <p>{{ object.description|safe }}</p>
+  </div>
 {% endif %}
-{% if link %}<a href="{{ link }}">{% trans "more" %} &#187;</a>{% endif %}
+{% if link %}
+  <div class="span2">
+  </div>
+  <div class="span6">
+    <a href="{{ link }}">Les mer her &#187;</a>
+  </div>
+{% endif %}
