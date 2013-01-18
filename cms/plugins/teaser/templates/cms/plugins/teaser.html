@@ -11,7 +11,7 @@
   {% endif %}
   {% if object.description %}
     <div class="span6">
-      <p>{{ object.description|safe }}</p>
+      {{ object.description|safe }}
     </div>
   {% endif %}
   {% if link %}
