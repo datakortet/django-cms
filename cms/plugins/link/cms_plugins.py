@@ -1,10 +1,12 @@
 from django.utils.translation import ugettext_lazy as _
+from django.core.cache import cache
 from django.contrib.sites.models import Site
 from django.conf import settings
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
 from cms.plugins.link.forms import LinkForm
 from models import Link
+
 
 class LinkPlugin(CMSPluginBase):
     model = Link
@@ -14,14 +16,18 @@ class LinkPlugin(CMSPluginBase):
     text_enabled = True
     
     def render(self, context, instance, placeholder):
-        if instance.mailto:
-            link = u"mailto:%s" % instance.mailto
-        elif instance.url:
-            link = instance.url
-        elif instance.page_link:
-            link = instance.page_link.get_absolute_url()
-        else:
-            link = ""
+        link = cache.get(instance._cache_key)
+        if link is None:
+            if instance.mailto:
+                link = u"mailto:%s" % instance.mailto
+            elif instance.url:
+                link = instance.url
+            elif instance.page_link:
+                link = instance.page_link.get_absolute_url()
+            else:
+                link = ""
+            cache.set(instance._cache_key, link, 60 * 60 * 24)
+
         context.update({
             'name': instance.name,
             'link': link, 
