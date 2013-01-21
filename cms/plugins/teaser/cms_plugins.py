@@ -1,11 +1,13 @@
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
+from django.core.cache import cache
 from django.utils.translation import ugettext_lazy as _
 from cms.plugins.teaser.models import Teaser
 from cms.plugins.text.settings import USE_TINYMCE
 from django.forms.fields import CharField
 from django.conf import settings
 from cms.plugins.text.widgets.wymeditor_widget import WYMEditor
+
 
 
 class TeaserPlugin(CMSPluginBase):
@@ -42,17 +44,21 @@ class TeaserPlugin(CMSPluginBase):
         return super(TeaserPlugin, self).get_form(request, obj, **kwargs)
 
     def render(self, context, instance, placeholder):
-        if instance.url:
-            link = instance.url
-        elif instance.page_link:
-            link = instance.page_link.get_absolute_url()
-        else:
-            link = ""
+        link = cache.get(instance._cache_key)
+        if link is None:
+            if instance.url:
+                link = instance.url
+            elif instance.page_link:
+                link = instance.page_link.get_absolute_url()
+            else:
+                link = ""
+            cache.set(instance._cache_key, link, 60 * 60 * 24)
+
         context.update({
-            'object':instance, 
+            'object':instance,
             'placeholder':placeholder,
             'link':link
         })
-        return context 
- 
+        return context
+
 plugin_pool.register_plugin(TeaserPlugin)
