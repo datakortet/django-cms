@@ -24,6 +24,7 @@ def assign_plugins(request, placeholders, lang=None):
     if not placeholders:
         return
     lang = lang or get_language_from_request(request)
+    lang = lang.split('-')[0]
 
     # get all plugins for the given placeholders
     qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=lang, parent__isnull=True).order_by('placeholder', 'position')
