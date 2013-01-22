@@ -4,6 +4,7 @@ import warnings
 from datetime import date
 
 from django.conf import settings
+from django.core.cache import cache
 from django.core.exceptions import ValidationError, ObjectDoesNotExist
 from django.db import models
 from django.db.models.base import (model_unpickle, simple_class_factory)
