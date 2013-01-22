@@ -173,14 +173,17 @@ class CMSPlugin(MPTTModel):
         else:
             user_uniqueness = user.username
 
+        if context.get('request').META.get('HTTP_USER_AGENT', '').startswith('ApacheBench'):
+            user_uniqueness = 'apachebench'
+
         if user_uniqueness:
-            ckey = "CMSPlugin_id_%d_placeh_%s_path_%s_lang_%s_user_%s" % (
+            ckey = str("CMSPlugin_id_%d_placeh_%s_path_%s_lang_%s_user_%s" % (
                 self.id,
                 placeholder,
                 context.get('request').path,
                 context.get('lang'),
                 user_uniqueness
-            )
+            ))
 
         if user_uniqueness and hasattr(settings, 'CMS_PLUGIN_CACHE_DATA'):
             if self.plugin_type in settings.CMS_PLUGIN_CACHE_DATA:
@@ -195,7 +198,7 @@ class CMSPlugin(MPTTModel):
 
         text = cache.get(ckey) if cacheable else None
         if text is None:
-            # print "PLUGIN-cache..... MISS"
+            #print "      PLUGIN-cache......   MISS."
             instance, plugin = self.get_plugin_instance()
             if instance and not (admin and not plugin.admin_preview):
                 if not isinstance(placeholder, Placeholder):
@@ -215,7 +218,7 @@ class CMSPlugin(MPTTModel):
             if cacheable:
                 cache.set(ckey, text, cache_duration)
         else:
-            # print "PLUGIN-cache......   HIT..!!!!!!!!!!"
+            #print "PLUGIN-cache......   HIT..!!!!!!!!!!"
             pass
         return text
 
