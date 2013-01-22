@@ -163,21 +163,60 @@ class CMSPlugin(MPTTModel):
         return instance, plugin
 
     def render_plugin(self, context=None, placeholder=None, admin=False, processors=None):
-        instance, plugin = self.get_plugin_instance()
-        if instance and not (admin and not plugin.admin_preview):
-            if not isinstance(placeholder, Placeholder):
-                placeholder = instance.placeholder
-            placeholder_slot = placeholder.slot
-            context = PluginContext(context, instance, placeholder)
-            context = plugin.render(context, instance, placeholder_slot)
-            if plugin.render_plugin:
-                template = hasattr(instance, 'render_template') and instance.render_template or plugin.render_template
-                if not template:
-                    raise ValidationError("plugin has no render_template: %s" % plugin.__class__)
+        user = context.get('user')
+        csrf_token = context.get('csrf_token')
+        user_uniqueness = None
+        if user.is_anonymous:
+            if csrf_token:
+                user_uniqueness = csrf_token
+        else:
+            user_uniqueness = user.username
+
+        if user_uniqueness:
+            ckey = "CMSPlugin_id_%d_placeh_%s_path_%s_lang_%s_user_%s" % (
+                self.id,
+                placeholder,
+                context.get('request').path,
+                context.get('lang'),
+                user_uniqueness
+            )
+
+        if user_uniqueness and hasattr(settings, 'CMS_PLUGIN_CACHE_DATA'):
+            if self.plugin_type in settings.CMS_PLUGIN_CACHE_DATA:
+                cache_info = settings.CMS_PLUGIN_CACHE_DATA[self.plugin_type]
             else:
-                template = None
-            return render_plugin(context, instance, placeholder, template, processors)
-        return ""
+                cache_info = settings.CMS_PLUGIN_CACHE_DATA['default']
+            cacheable = cache_info['cacheable']
+            cache_duration = cache_info['duration'] if cacheable else None
+        else:
+            cacheable = False
+            cache_duration = None
+
+        text = cache.get(ckey) if cacheable else None
+        if text is None:
+            # print "PLUGIN-cache..... MISS"
+            instance, plugin = self.get_plugin_instance()
+            if instance and not (admin and not plugin.admin_preview):
+                if not isinstance(placeholder, Placeholder):
+                    placeholder = instance.placeholder
+                placeholder_slot = placeholder.slot
+                context = PluginContext(context, instance, placeholder)
+                context = plugin.render(context, instance, placeholder_slot)
+                if plugin.render_plugin:
+                    template = hasattr(instance, 'render_template') and instance.render_template or plugin.render_template
+                    if not template:
+                        raise ValidationError("plugin has no render_template: %s" % plugin.__class__)
+                else:
+                    template = None
+                text = render_plugin(context, instance, placeholder, template, processors)
+            else:
+                text = ""
+            if cacheable:
+                cache.set(ckey, text, cache_duration)
+        else:
+            # print "PLUGIN-cache......   HIT..!!!!!!!!!!"
+            pass
+        return text
 
     def get_media_path(self, filename):
         pages = self.placeholder.page_set.all()
