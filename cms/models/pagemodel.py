@@ -527,7 +527,14 @@ class Page(MPTTModel):
         """
         from cms.models.titlemodels import Title
 
-        if not hasattr(self, "all_languages"):
+        if len(settings.CMS_LANGUAGES) == 1:
+            # If this is a mono-lingular site, then save one database hit by
+            # inferring that all pages must be in this language.
+            # CMS_LANGUAGES will then be defined like:
+            #    CMS_LANGUAGES = (('nb', 'Norwegian'),)
+            # so get the language code part of the first language tuple.
+            self.all_languages = settings.CMS_LANGUAGES[0][0]
+        elif not hasattr(self, "all_languages"):
             self.all_languages = Title.objects.filter(page=self).values_list("language", flat=True).distinct()
             self.all_languages = list(self.all_languages)
             self.all_languages.sort()
