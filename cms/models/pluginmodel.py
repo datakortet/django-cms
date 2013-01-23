@@ -118,7 +118,7 @@ class CMSPlugin(MPTTModel):
             factory = deferred_class_factory
             for field in self._meta.fields:
                 if isinstance(self.__class__.__dict__.get(field.attname),
-                        DeferredAttribute):
+                              DeferredAttribute):
                     defers.append(field.attname)
                     if pk_val is None:
                         # The pk_val and model values are the same for all
@@ -163,42 +163,64 @@ class CMSPlugin(MPTTModel):
             instance = self
         return instance, plugin
 
-    def render_plugin(self, context=None, placeholder=None, admin=False, processors=None):
+    def _plugin_cache_data(self, plugintype):
+        # defaults imply no caching
+        cache_info = dict(
+            cacheable=False,
+            vary_user=True,
+            duration=getattr(settings, 'CMS_CACHE_DURATION', 0))
+
+        if hasattr(settings, 'CMS_PLUGIN_CACHE_DATA'):
+            pcd = settings.CMS_PLUGIN_CACHE_DATA
+            cache_info.update(pcd['default'])
+            if self.plugin_type in pcd:
+                cache_info.update(pcd[self.plugin_type])
+        return cache_info
+
+    def _user_cache_token(self, context, cache_data):
+        if not cache_data['vary_user']:
+            return ''
+
         user = context.get('user')
-        csrf_token = context.get('csrf_token')
         user_uniqueness = None
         if user.is_anonymous:
+            csrf_token = context.get('csrf_token')
             if csrf_token:
                 user_uniqueness = csrf_token
         else:
             user_uniqueness = user.username
+        return user_uniqueness
 
-        if context.get('request').META.get('HTTP_USER_AGENT', '').startswith('ApacheBench'):
-            user_uniqueness = 'apachebench'
+    def _plugin_cache_key(self, context, placeholder, cache_data):
+        if not cache_data['cacheable']:
+            return None
 
-        if user_uniqueness:
-            ckey = str("CMSPlugin_id_%d_placeh_%s_path_%s_lang_%s_user_%s" % (
-                self.id,
-                placeholder,
-                context.get('request').path,
-                context.get('lang'),
-                user_uniqueness
-            ))
+        user_uniqueness = self._user_cache_token(context, cache_data)
+        ckey = "CMSPlugin_id_%d_placeh_%s_path_%s_lang_%s_user_%s" % (
+            self.id,
+            placeholder,
+            context.get('request').path,
+            context.get('lang'),
+            user_uniqueness
+            )
+        return ckey
 
-        if user_uniqueness and hasattr(settings, 'CMS_PLUGIN_CACHE_DATA'):
-            if self.plugin_type in settings.CMS_PLUGIN_CACHE_DATA:
-                cache_info = settings.CMS_PLUGIN_CACHE_DATA[self.plugin_type]
-            else:
-                cache_info = settings.CMS_PLUGIN_CACHE_DATA['default']
-            cacheable = cache_info['cacheable']
-            cache_duration = cache_info['duration'] if cacheable else None
-        else:
-            cacheable = False
-            cache_duration = None
+    def render_plugin(self, context=None, placeholder=None, admin=False, processors=None):
+        cache_duration = None
+        cacheable = False
+
+        if len(context.get('request').REQUEST.keys()) == 0:
+            # only consider caching if there are no parameters
+            cache_data = self._plugin_cache_data(self.plugin_type)
+            if cache_data['cacheable']:
+                cacheable = True
+                ckey = self._plugin_cache_key(context, placeholder, cache_data)
+                cache_duration = cache_data['duration']
 
         text = cache.get(ckey) if cacheable else None
+
         if text is None:
-            #print "      PLUGIN-cache......   MISS."
+            #print "PLUGIN-cache.....    MISS", self.plugin_type, self._plugin_cache_data(self.plugin_type)
             instance, plugin = self.get_plugin_instance()
             if instance and not (admin and not plugin.admin_preview):
                 if not isinstance(placeholder, Placeholder):
@@ -229,7 +251,7 @@ class CMSPlugin(MPTTModel):
         else:  # django 1.0.2 compatibility
             today = date.today()
             return os.path.join(settings.CMS_PAGE_MEDIA_PATH,
-                str(today.year), str(today.month), str(today.day), filename)
+                                str(today.year), str(today.month), str(today.day), filename)
 
     @property
     def page(self):
@@ -399,7 +421,7 @@ def deferred_class_factory(model, attrs):
     name = "%s_Deferred_%s" % (model.__name__, '_'.join(sorted(list(attrs))))
 
     overrides = dict([(attr, DeferredAttribute(attr, model))
-            for attr in attrs])
+                      for attr in attrs])
     overrides["Meta"] = RenderMeta
     overrides["RenderMeta"] = RenderMeta
     overrides["__module__"] = model.__module__
