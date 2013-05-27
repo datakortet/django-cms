@@ -205,6 +205,29 @@ class CMSPlugin(MPTTModel):
             )
         return ckey
 
+    def _render_plugin(self, context=None, placeholder=None, admin=False, processors=None):
+        instance, plugin = self.get_plugin_instance()
+        if instance and not (admin and not plugin.admin_preview):
+            if not isinstance(placeholder, Placeholder):
+                placeholder = instance.placeholder
+            placeholder_slot = placeholder.slot
+            current_app = context.current_app if context else None
+            context = PluginContext(context, instance, placeholder, current_app=current_app)
+            context = plugin.render(context, instance, placeholder_slot)
+            request = context.get('request', None)
+            page = None
+            if request:
+                page = request.current_page
+            context['allowed_child_classes'] = plugin.get_child_classes(placeholder_slot, page)
+            if plugin.render_plugin:
+                template = hasattr(instance, 'render_template') and instance.render_template or plugin.render_template
+                if not template:
+                    raise ValidationError("plugin has no render_template: %s" % plugin.__class__)
+            else:
+                template = None
+            return render_plugin(context, instance, placeholder, template, processors, context.current_app)
+        return ""
+
     def render_plugin(self, context=None, placeholder=None, admin=False, processors=None):
         cache_duration = None
         cacheable = False
@@ -220,27 +243,10 @@ class CMSPlugin(MPTTModel):
         text = cache.get(ckey) if cacheable else None
 
         if text is None:
-            #print "PLUGIN-cache.....    MISS", self.plugin_type, self._plugin_cache_data(self.plugin_type)
-            instance, plugin = self.get_plugin_instance()
-            if instance and not (admin and not plugin.admin_preview):
-                if not isinstance(placeholder, Placeholder):
-                    placeholder = instance.placeholder
-                placeholder_slot = placeholder.slot
-                context = PluginContext(context, instance, placeholder)
-                context = plugin.render(context, instance, placeholder_slot)
-                if plugin.render_plugin:
-                    template = hasattr(instance, 'render_template') and instance.render_template or plugin.render_template
-                    if not template:
-                        raise ValidationError("plugin has no render_template: %s" % plugin.__class__)
-                else:
-                    template = None
-                text = render_plugin(context, instance, placeholder, template, processors)
-            else:
-                text = ""
+            text = self._render_plugin(context, placeholder, admin, processors)
             if cacheable:
                 cache.set(ckey, text, cache_duration)
         else:
-            #print "PLUGIN-cache......   HIT..!!!!!!!!!!"
             pass
         return text
 

@@ -31,22 +31,31 @@ def assign_plugins(request, placeholders, lang=None):
     if not placeholders:
         return
     lang = lang or get_language_from_request(request)
-    request_lang = lang
-    if hasattr(request, "current_page") and request.current_page is not None:
-        languages = request.current_page.get_languages()
-        if not lang in languages and not get_redirect_on_fallback(lang):
-            fallbacks = get_fallback_languages(lang)
-            for fallback in fallbacks:
-                if fallback in languages:
-                    request_lang = fallback
-                    break
-                    # get all plugins for the given placeholders
-    qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=request_lang).order_by(
-        'placeholder', 'tree_id', 'lft')
     lang = lang.split('-')[0]
 
-    # get all plugins for the given placeholders
-    qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=lang, parent__isnull=True).order_by('placeholder', 'position')
+    # [dk] get all plugins for the given placeholders
+    # qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=lang, parent__isnull=True).order_by('placeholder', 'position')
+
+    #     # upstream
+    #     request_lang = lang
+    #     if hasattr(request, "current_page") and request.current_page is not None:
+    #         languages = request.current_page.get_languages()
+    #         if not lang in languages and not get_redirect_on_fallback(lang):
+    #             fallbacks = get_fallback_languages(lang)
+    #             for fallback in fallbacks:
+    #                 if fallback in languages:
+    #                     request_lang = fallback
+    #                     break
+    #                     # get all plugins for the given placeholders
+    #     qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=request_lang).order_by(
+    #         'placeholder', 'tree_id', 'lft')
+
+    # [dk2]
+    request_lang = lang
+    qs = get_cmsplugin_queryset(request).filter(placeholder__in=placeholders, language=request_lang).order_by(
+        'placeholder', 'tree_id', 'lft')
+
+
     plugin_list = downcast_plugins(qs)
 
     # split the plugins up by placeholder
