@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
+from cms import constants
 from cms.apphook_pool import apphook_pool
 from cms.forms.widgets import UserSelectAdminWidget
 from cms.models import (Page, PagePermission, PageUser, ACCESS_PAGE, 
-    PageUserGroup)
+    PageUserGroup, titlemodels)
+from cms.utils.conf import get_cms_setting
+from cms.utils.i18n import get_language_tuple, get_language_list
 from cms.utils.mail import mail_page_user_change
 from cms.utils.page import is_valid_page_slug
 from cms.utils.page_resolver import get_page_from_path, is_valid_url
 from cms.utils.permissions import (get_current_user, get_subordinate_users, 
-    get_subordinate_groups)
+    get_subordinate_groups, get_user_permission_level)
 from cms.utils.urlutils import any_path_re
 from django import forms
-from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import Permission, User
 from django.contrib.contenttypes.models import ContentType
@@ -60,7 +62,7 @@ class PageAddForm(forms.ModelForm):
         help_text=_('The default title'))
     slug = forms.CharField(label=_("Slug"), widget=forms.TextInput(),
         help_text=_('The part of the title that is used in the URL'))
-    language = forms.ChoiceField(label=_("Language"), choices=settings.CMS_LANGUAGES,
+    language = forms.ChoiceField(label=_("Language"), choices=get_language_tuple(),
         help_text=_('The current language of the content fields.'))
     
     class Meta:
@@ -74,21 +76,15 @@ class PageAddForm(forms.ModelForm):
         if not self.fields['site'].initial:
             self.fields['site'].initial = Site.objects.get_current().pk
         site_id = self.fields['site'].initial
-        languages = []
-        language_mappings = dict(settings.LANGUAGES)
-        if site_id in settings.CMS_SITE_LANGUAGES:
-            for lang in settings.CMS_SITE_LANGUAGES[site_id]:
-                languages.append((lang, language_mappings.get(lang, lang)))
-        else:
-            languages = settings.CMS_LANGUAGES
+        languages = get_language_tuple(site_id)
         self.fields['language'].choices = languages
         if not self.fields['language'].initial:
             self.fields['language'].initial = get_language()
-        if self.fields['parent'].initial and \
-            settings.CMS_TEMPLATE_INHERITANCE_MAGIC in \
-            [name for name, value in settings.CMS_TEMPLATES]:
+        if (self.fields['parent'].initial and
+            get_cms_setting('TEMPLATE_INHERITANCE') in
+            [name for name, value in get_cms_setting('TEMPLATES')]):
             # non-root pages default to inheriting their template
-            self.fields['template'].initial = settings.CMS_TEMPLATE_INHERITANCE_MAGIC
+            self.fields['template'].initial = constants.TEMPLATE_INHERITANCE_MAGIC
         
     def clean(self):
         cleaned_data = self.cleaned_data
@@ -109,6 +105,9 @@ class PageAddForm(forms.ModelForm):
         except Site.DoesNotExist:
             site = None
             raise ValidationError("No site found for current settings.")
+
+        if parent and parent.site != site:
+            raise ValidationError("Site doesn't match the parent's page site")
         
         if site and not is_valid_page_slug(page, parent, lang, slug, site):
             self._errors['slug'] = ErrorList([_('Another page with this slug already exists')])
@@ -117,8 +116,11 @@ class PageAddForm(forms.ModelForm):
             #Check for titles attached to the page makes sense only because
             #AdminFormsTests.test_clean_overwrite_url validates the form with when no page instance available
             #Looks like just a theoretical corner case
-            title = page.get_title_obj(lang)
-            if title and slug:
+            try:
+                title = page.get_title_obj(lang, fallback=False)
+            except titlemodels.Title.DoesNotExist:
+                title = None
+            if title and not isinstance(title, titlemodels.EmptyTitle) and slug:
                 oldslug = title.slug
                 title.slug = slug
                 title.save()
@@ -140,7 +142,7 @@ class PageAddForm(forms.ModelForm):
     
     def clean_language(self):
         language = self.cleaned_data['language']
-        if not language in dict(settings.CMS_LANGUAGES).keys():
+        if not language in get_language_list():
             raise ValidationError("Given language does not match language settings.")
         return language
         
@@ -155,11 +157,7 @@ class PageForm(PageAddForm):
         help_text=_('Hook application to this page.'))
     overwrite_url = forms.CharField(label=_('Overwrite URL'), max_length=255, required=False,
         help_text=_('Keep this field empty if standard path should be used.'))
-    # moderation state
-    moderator_state = forms.IntegerField(widget=forms.HiddenInput, required=False, initial=Page.MODERATOR_CHANGED) 
-    # moderation - message is a fake field
-    moderator_message = forms.CharField(max_length=1000, widget=forms.HiddenInput, required=False)
-    
+
     redirect = forms.CharField(label=_('Redirect'), max_length=255, required=False,
         help_text=_('Redirects to this URL.'))
     meta_description = forms.CharField(label='Description meta tag', required=False, widget=forms.Textarea,
@@ -198,14 +196,53 @@ class PagePermissionInlineAdminForm(forms.ModelForm):
     level or under him in choosen page tree, and users which were created by him, 
     but aren't assigned to higher page level than current user.
     """
-    user = forms.ModelChoiceField('user', label=_('user'), widget=UserSelectAdminWidget, required=False)
     page = forms.ModelChoiceField(Page, label=_('user'), widget=HiddenInput(), required=True)
     
     def __init__(self, *args, **kwargs):
         super(PagePermissionInlineAdminForm, self).__init__(*args, **kwargs)
         user = get_current_user() # current user from threadlocals
-        self.fields['user'].queryset = get_subordinate_users(user)
-        self.fields['user'].widget.user = user # assign current user
+        sub_users = get_subordinate_users(user)
+
+        limit_choices = True
+        use_raw_id = False
+
+        # Unfortunately, if there are > 500 users in the system, non-superusers
+        # won't see any benefit here because if we ask Django to put all the
+        # user PKs in limit_choices_to in the query string of the popup we're
+        # in danger of causing 414 errors so we fall back to the normal input
+        # widget.
+        if get_cms_setting('RAW_ID_USERS'):
+            if sub_users.count() < 500:
+                # If there aren't too many users, proceed as normal and use a
+                # raw id field with limit_choices_to
+                limit_choices = True
+                use_raw_id = True
+            elif get_user_permission_level(user) == 0:
+                # If there are enough choices to possibly cause a 414 request
+                # URI too large error, we only proceed with the raw id field if
+                # the user is a superuser & thus can legitimately circumvent
+                # the limit_choices_to condition.
+                limit_choices = False
+                use_raw_id = True
+
+        # We don't use the fancy custom widget if the admin form wants to use a
+        # raw id field for the user
+        if use_raw_id:
+            from django.contrib.admin.widgets import ForeignKeyRawIdWidget
+            # This check will be False if the number of users in the system
+            # is less than the threshold set by the RAW_ID_USERS setting.
+            if isinstance(self.fields['user'].widget, ForeignKeyRawIdWidget):
+                # We can't set a queryset on a raw id lookup, but we can use
+                # the fact that it respects the limit_choices_to parameter.
+                if limit_choices:
+                    self.fields['user'].widget.rel.limit_choices_to = dict(
+                        id__in=list(sub_users.values_list('pk', flat=True))
+                    )
+        else:
+            self.fields['user'].widget = UserSelectAdminWidget()
+            self.fields['user'].queryset = sub_users
+            self.fields['user'].widget.user = user # assign current user
+
         self.fields['group'].queryset = get_subordinate_groups(user)
     
     def clean(self):

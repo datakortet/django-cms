@@ -1,116 +1,118 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Roger Pons <rogerpons@gmail.com>, 2012.
+# dbassa <danbasper@gmail.com>, 2013
+# Roger Pons <rogerpons@gmail.com>, 2012-2013
+# whoami <whoami@live.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-21 14:53+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Report-Msgid-Bugs-To: https://github.com/divio/django-cms/issues\n"
+"POT-Creation-Date: 2013-04-09 09:51+0200\n"
+"PO-Revision-Date: 2013-04-10 09:17+0000\n"
+"Last-Translator: Roger Pons <rogerpons@gmail.com>\n"
 "Language-Team: divio.ch <developers@divio.ch>\n"
-"Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_toolbar.py:70
+#: cms_toolbar.py:71
+msgid "Revert"
+msgstr "Revertir"
+
+#: cms_toolbar.py:75
 msgid "Edit mode"
 msgstr "Mode d'edició"
 
-#: cms_toolbar.py:79
+#: cms_toolbar.py:109
 msgid "django CMS"
 msgstr "django CMS"
 
-#: cms_toolbar.py:110 templates/admin/cms/page/menu_item.html:69
+#: cms_toolbar.py:133 templates/admin/cms/page/menu_item.html:58
+#: templates/admin/cms/page/menu_item.html:71
 msgid "Publish"
 msgstr "Publicar"
 
-#: cms_toolbar.py:114
-msgid "Request Approval"
-msgstr "Sol·licitud d'aprovació"
-
-#: cms_toolbar.py:135 cms_toolbar.py:144
+#: cms_toolbar.py:154
 msgid "Logout"
 msgstr "Sortir"
 
-#: cms_toolbar.py:160
+#: cms_toolbar.py:171
 msgid "Template"
 msgstr "Plantilla"
 
-#: cms_toolbar.py:168
+#: cms_toolbar.py:179
 msgid "Move/add Pages"
 msgstr "Moure o afegir pàgines"
 
-#: cms_toolbar.py:173
+#: cms_toolbar.py:184
 msgid "Add child page"
 msgstr "afegir una pàgina filla"
 
-#: cms_toolbar.py:179
+#: cms_toolbar.py:190
 msgid "Add sibling page"
 msgstr "Afegir una pàgina germana"
 
-#: cms_toolbar.py:185
+#: cms_toolbar.py:196
 msgid "Delete Page"
 msgstr "Eliminar pàgina"
 
-#: cms_toolbar.py:188 models/moderatormodels.py:45
-#: templates/admin/cms/page/permissions.html:5
+#: cms_toolbar.py:199 templates/admin/cms/page/permissions.html:5
 msgid "Page"
 msgstr "Pàgina"
 
-#: cms_toolbar.py:197
+#: cms_toolbar.py:208
 msgid "Site Administration"
 msgstr "Administració del lloc"
 
-#: cms_toolbar.py:203
+#: cms_toolbar.py:214
 msgid "Page Settings"
 msgstr "Configuració de la pàgina"
 
-#: cms_toolbar.py:209
+#: cms_toolbar.py:220
 msgid "View History"
 msgstr "Veure l'historial"
 
-#: cms_toolbar.py:213
+#: cms_toolbar.py:224
 msgid "Admin"
 msgstr "Admin"
 
-#: plugin_base.py:65
+#: plugin_base.py:72
 msgid "Advanced options"
 msgstr "Opcions avançades"
 
-#: admin/forms.py:59
+#: admin/forms.py:61
 msgid "Title"
 msgstr "Títol"
 
-#: admin/forms.py:60
+#: admin/forms.py:62
 msgid "The default title"
 msgstr "El títol per defecte"
 
-#: admin/forms.py:61
+#: admin/forms.py:63
 msgid "Slug"
 msgstr "Slug"
 
-#: admin/forms.py:62
+#: admin/forms.py:64
 msgid "The part of the title that is used in the URL"
 msgstr "La part del títol que s'utilitza en la direcció URL"
 
-#: admin/forms.py:63
+#: admin/forms.py:65
 msgid "Language"
 msgstr "Idioma"
 
-#: admin/forms.py:64
+#: admin/forms.py:66
 msgid "The current language of the content fields."
 msgstr "El llenguatge actual dels camps de contingut."
 
-#: admin/forms.py:117
+#: admin/forms.py:113
 msgid "Another page with this slug already exists"
 msgstr "Una altra pàgina amb aquest slug ja existeix"
 
@@ -127,10 +129,9 @@ msgid "Page Title"
 msgstr "Títol de la pàgina"
 
 #: admin/forms.py:154
-msgid "Overwrites what is displayed at the top of your browser or in bookmarks"
-msgstr ""
-"Sobreescriu el que es mostra a la part superior del navegador o en els seus "
-"favorits"
+msgid ""
+"Overwrites what is displayed at the top of your browser or in bookmarks"
+msgstr "Sobreescriu el que es mostra a la part superior del navegador o en els seus favorits"
 
 #: admin/forms.py:155
 msgid "Application"
@@ -148,307 +149,316 @@ msgstr "Sobreescriu URL"
 msgid "Keep this field empty if standard path should be used."
 msgstr "Manté aquest camp buit si s'ha d'usar la ruta per defecte"
 
-#: admin/forms.py:165
+#: admin/forms.py:161
 msgid "Redirect"
 msgstr "Redirigir"
 
-#: admin/forms.py:166
+#: admin/forms.py:162
 msgid "Redirects to this URL."
 msgstr "Redirecciona a aquesta URL."
 
-#: admin/forms.py:168
+#: admin/forms.py:164
 msgid "A description of the page sometimes used by search engines."
 msgstr "Una descripció de la pàgina a vegades utilitzada pels motors de cerca."
 
-#: admin/forms.py:170
+#: admin/forms.py:166
 msgid "A list of comma seperated keywords sometimes used by search engines."
-msgstr ""
-"Una llista de paraules clau separades per comes a vegades utilitzada pels "
-"motors de cerca."
+msgstr "Una llista de paraules clau separades per comes a vegades utilitzada pels motors de cerca."
 
-#: admin/forms.py:186
+#: admin/forms.py:182
 msgid "A page with this reverse URL id exists already."
 msgstr "Una pàgina amb una URL que correspon amb aquest id ja existeix."
 
-#: admin/forms.py:203 admin/forms.py:204 migrations/0001_initial.py:41
-#: models/permissionmodels.py:17
+#: admin/forms.py:199 admin/forms.py:200 models/permissionmodels.py:39
 msgid "user"
 msgstr "usuari"
 
-#: admin/forms.py:228
+#: admin/forms.py:224
 msgid ""
 "Add page permission requires also access to children, or descendants, "
 "otherwise added page can't be changed by its creator."
-msgstr ""
-"Afegir el permís pàgina requereix també l'accés als fills, o descendents, en "
-"cas contrari la  pàgina afegida no podria ser modificada pel seu creador."
+msgstr "Afegir el permís pàgina requereix també l'accés als fills, o descendents, en cas contrari la  pàgina afegida no podria ser modificada pel seu creador."
 
-#: admin/forms.py:233
+#: admin/forms.py:229
 msgid "Add page permission also requires edit page permission."
 msgstr "El permís Afegir pàgina també requereix permisos d'edició de pàgina."
 
-#: admin/forms.py:260
+#: admin/forms.py:256
 msgid "can_view"
 msgstr "pot_veure"
 
-#: admin/forms.py:272
+#: admin/forms.py:268
 msgid "Please select user or group first."
 msgstr "Si us plau, seleccioneu l'usuari o el grup primer."
 
-#: admin/forms.py:279 admin/forms.py:286 admin/forms.py:290
-#: templates/admin/cms/page/change_form.html:68
+#: admin/forms.py:275 admin/forms.py:282 admin/forms.py:286
+#: templates/admin/cms/page/change_form.html:73
 #: templates/admin/cms/page/plugin_change_form.html:76
 #: templates/cms/toolbar/placeholder.html:26
 msgid "Add"
 msgstr "Afegir"
 
-#: admin/forms.py:280 admin/forms.py:287 admin/forms.py:291
+#: admin/forms.py:276 admin/forms.py:283 admin/forms.py:287
 msgid "Change"
 msgstr "Canviar"
 
-#: admin/forms.py:281 admin/forms.py:288 admin/forms.py:292
+#: admin/forms.py:277 admin/forms.py:284 admin/forms.py:288
 #: templates/admin/page_submit_line.html:5
 #: templates/admin/cms/page/menu_item.html:44
 msgid "Delete"
 msgstr "Esborrar"
 
-#: admin/forms.py:282
+#: admin/forms.py:278
 msgid "Recover (any) pages"
 msgstr "Recuperar (les pàgines)"
 
-#: admin/forms.py:309
+#: admin/forms.py:305
 msgid "Notify user"
 msgstr "Notificar a l'usuari"
 
-#: admin/forms.py:310
+#: admin/forms.py:306
 msgid ""
 "Send email notification to user about username or password change. Requires "
 "user email."
-msgstr ""
-"Enviar notificació per correu electrònic a l'usuari sobre el canvi nom "
-"d'usuari o contrasenya. Requereix del correu electrònic de l'usuari."
+msgstr "Enviar notificació per correu electrònic a l'usuari sobre el canvi nom d'usuari o contrasenya. Requereix del correu electrònic de l'usuari."
 
-#: admin/forms.py:330
+#: admin/forms.py:326
 msgid "New password"
 msgstr "Nova contrasenya"
 
-#: admin/forms.py:332
+#: admin/forms.py:328
 msgid "New password confirmation"
 msgstr "Nova confirmació de la contrasenya"
 
-#: admin/forms.py:351
+#: admin/forms.py:347
 msgid "Email notification requires valid email address."
-msgstr ""
-"Notificació per correu electrònic requereix d'una adreça de correu "
-"electrònic vàlida."
+msgstr "Notificació per correu electrònic requereix d'una adreça de correu electrònic vàlida."
 
-#: admin/forms.py:353
+#: admin/forms.py:349
 msgid ""
 "The permission to add new pages requires the permission to change pages!"
-msgstr ""
-"El permís per afegir noves pàgines requereix el permís per modificar pàgines!"
+msgstr "El permís per afegir noves pàgines requereix el permís per modificar pàgines!"
 
-#: admin/forms.py:355
+#: admin/forms.py:351
 msgid ""
 "The permission to add new users requires the permission to change users!"
-msgstr ""
-"El permís per afegir nous usuaris requereix el permís per modificar usuaris!"
+msgstr "El permís per afegir nous usuaris requereix el permís per modificar usuaris!"
 
-#: admin/forms.py:357
+#: admin/forms.py:353
 msgid "To add permissions you also need to edit them!"
 msgstr "Per afegir permisos també és necessari poder editar-los!"
 
-#: admin/pageadmin.py:108
+#: admin/pageadmin.py:103
 msgid "Basic Settings"
 msgstr "Configuració bàsica"
 
-#: admin/pageadmin.py:111
+#: admin/pageadmin.py:106
 msgid "Note: This page reloads if you change the selection. Save it first."
-msgstr ""
-"Nota: Aquesta plana es torna a carregar si canvia la selecció. Desa-la "
-"primer."
+msgstr "Nota: Aquesta plana es torna a carregar si canvia la selecció. Desa-la primer."
 
-#: admin/pageadmin.py:113 admin/pageadmin.py:165
+#: admin/pageadmin.py:108 admin/pageadmin.py:159
 msgid "Hidden"
 msgstr "Ocult"
 
-#: admin/pageadmin.py:117
+#: admin/pageadmin.py:112
 msgid "Advanced Settings"
 msgstr "Configuració avançada"
 
-#: admin/pageadmin.py:124
+#: admin/pageadmin.py:119
 msgid "SEO Settings"
 msgstr "Ajustaments de SEO"
 
-#: admin/pageadmin.py:311
-msgid "You have no permission to change the template"
-msgstr "Sense permisos per modificar la plantilla"
+#: admin/pageadmin.py:638
+msgid "You do not have permission to change pages."
+msgstr "Sense permisos per modificar pàgines."
 
-#: admin/pageadmin.py:498
-msgid "higher"
-msgstr "major"
-
-#: admin/pageadmin.py:668
+#: admin/pageadmin.py:650
 msgid "Database error"
 msgstr "Error de la base de dades"
 
-#: admin/pageadmin.py:779
+#: admin/pageadmin.py:743
+msgid "You do not have permission to change the template"
+msgstr "Sense permisos per modificar la plantilla"
+
+#: admin/pageadmin.py:747
+msgid "Template not valid"
+msgstr "Plantilla no vàlida"
+
+#: admin/pageadmin.py:752
+#, python-format
+msgid "Template changed to %s"
+msgstr "Plantilla canviada a %s"
+
+#: admin/pageadmin.py:754
+msgid "The template was successfully changed"
+msgstr "La plantilla ha estat modificada amb èxit"
+
+#: admin/pageadmin.py:776
 msgid ""
 "Error! You don't have permissions to move this page. Please reload the page"
-msgstr ""
+msgstr "Error! Sense permisos per moure aquesta pàgina. Cal recarregar la pàgina"
 
-#: admin/pageadmin.py:880
-msgid "Page was successfully approved."
-msgstr "La plana ha estat aprovada"
+#: admin/pageadmin.py:780
+msgid "Page moved"
+msgstr "Pàgina moguda"
 
-#: admin/pageadmin.py:952
+#: admin/pageadmin.py:866 admin/pageadmin.py:1054
+msgid "You do not have permission to publish this page"
+msgstr "No tens permís per publicar aquesta pàgina"
+
+#: admin/pageadmin.py:868
+#, python-format
+msgid "The page \"%s\" was successfully published."
+msgstr "La pàgina \"%s\" ha estat publicada amb èxit."
+
+#: admin/pageadmin.py:910 admin/pageadmin.py:946 admin/pageadmin.py:1178
+#: admin/pageadmin.py:1211 admin/pageadmin.py:1344 admin/pageadmin.py:1376
+msgid "You do not have permission to change this page"
+msgstr "No tens permisos per modificar aquesta pàgina"
+
+#: admin/pageadmin.py:914
+#, python-format
+msgid "The page \"%s\" was successfully reverted."
+msgstr "La pàgina \"%s\" ha estat revertida amb èxit."
+
+#: admin/pageadmin.py:950
 #, python-format
 msgid "%(name)s object with primary key %(key)r does not exist."
 msgstr "L'objecte %(name)s amb la clau primària %(key)r no existeix."
 
-#: admin/pageadmin.py:958
+#: admin/pageadmin.py:956
 msgid "There only exists one translation for this page"
 msgstr "No només hi ha una traducció per a aquesta pàgina"
 
-#: admin/pageadmin.py:987
+#: admin/pageadmin.py:985
 #, python-format
 msgid "Title and plugins with language %(language)s was deleted"
 msgstr "Títol i connectors per %(language)s  s'han eliminat"
 
-#: admin/pageadmin.py:1009
+#: admin/pageadmin.py:1007
 msgid "Are you sure?"
 msgstr "Estàs segur?"
 
-#: admin/pageadmin.py:1074
-msgid "You do not have permission to publish this page"
-msgstr "No tens permís per publicar aquesta pàgina"
+#: admin/pageadmin.py:1063
+#, python-format
+msgid "The page \"%s\" was successfully unpublished"
+msgstr "S'ha anul·lat amb èxit la publicació \"%s\"."
 
-#: admin/pageadmin.py:1088
+#: admin/pageadmin.py:1065
+#, python-format
+msgid "The page \"%s\" was successfully published"
+msgstr "La pàgina \"%s\" ha estat publicada amb èxit."
+
+#: admin/pageadmin.py:1083
 msgid "You do not have permission to change this page's in_navigation status"
 msgstr "No tens permisos per canviar l'estat d'aquesta pàgina a la navegació"
 
-#: admin/pageadmin.py:1113
-msgid "You have no permission to add a plugin"
-msgstr "Sense permisos per afegir un plugin"
+#: admin/pageadmin.py:1108
+msgid "You do not have permission to add a plugin"
+msgstr "Sense permisos per afegir un plugin."
 
-#: admin/pageadmin.py:1160 admin/pageadmin.py:1192
+#: admin/pageadmin.py:1149 admin/pageadmin.py:1180
 msgid "Language must be set to a supported language!"
 msgstr "El llenguatge ha de ser  un dels llenguatges suportats!"
 
-#: admin/pageadmin.py:1172
+#: admin/pageadmin.py:1160
 #, python-format
 msgid "%(plugin_name)s plugin added to %(placeholder)s"
 msgstr "El connector %(plugin_name)s s'ha afegit a %(placeholder)s"
 
-#: admin/pageadmin.py:1190
-msgid "You do not have permission to change this page"
-msgstr "No tens permisos per modificar aquesta pàgina"
-
-#: admin/pageadmin.py:1194
+#: admin/pageadmin.py:1182
 msgid "Language must be different than the copied language!"
 msgstr "El llenguatge ha de ser diferent del copiat!"
 
-#: admin/pageadmin.py:1200
+#: admin/pageadmin.py:1188
 msgid "You do not have permission to add plugins"
 msgstr "Sense permisos per afegir plugins"
 
-#: admin/pageadmin.py:1207
+#: admin/pageadmin.py:1193
 #, python-format
 msgid "Copied %(language)s plugins to %(placeholder)s"
 msgstr "El connector %(language)s s'ha copiat a %(placeholder)s"
 
-#: admin/pageadmin.py:1221 admin/pageadmin.py:1349 admin/pageadmin.py:1375
-msgid "You have no permission to change this page"
-msgstr "Sense permisos per modificar aquesta pàgina"
+#: admin/pageadmin.py:1243
+msgid "This plugin is not saved in a revision"
+msgstr "El plugin no està desat en una revisió"
 
-#: admin/pageadmin.py:1255
-msgid "You have no permission to edit a plugin"
+#: admin/pageadmin.py:1246 admin/pageadmin.py:1340
+msgid "You do not have permission to edit a plugin"
 msgstr "Sense permisos per editar un plugin"
 
-#: admin/pageadmin.py:1311
+#: admin/pageadmin.py:1306
 #, python-format
 msgid ""
 "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
-msgstr ""
-"El connector %(plugin_name)s s'ha editat a la posició %(position)s de "
-"%(placeholder)s"
+msgstr "El connector %(plugin_name)s s'ha editat a la posició %(position)s de %(placeholder)s"
 
-#: admin/pageadmin.py:1370
-msgid "You have no permission to move a plugin"
+#: admin/pageadmin.py:1371
+msgid "You do not have permission to move a plugin"
 msgstr "Sense permisos per moure un plugin"
 
-#: admin/pageadmin.py:1388
-msgid "Plugins where moved"
-msgstr "Els connectors s'han mogut"
+#: admin/pageadmin.py:1390
+msgid "Plugins were moved"
+msgstr "S'han mogut els plugins"
 
-#: admin/pageadmin.py:1402
-msgid "You have no permission to remove a plugin"
-msgstr "Sense permisos per treure un plugin"
+#: admin/pageadmin.py:1403 admin/pageadmin.py:1412
+msgid "You do not have permission to remove a plugin"
+msgstr "Sense permisos per esborrar un plugin"
 
-#: admin/pageadmin.py:1420 admin/placeholderadmin.py:293
+#: admin/pageadmin.py:1422 admin/placeholderadmin.py:348
 #, python-format
 msgid ""
 "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
 "deleted."
-msgstr ""
-"El connector %(plugin_name)s a la posició %(position)s de %(placeholder)s "
-"s'ha esborrat"
+msgstr "El connector %(plugin_name)s a la posició %(position)s de %(placeholder)s s'ha esborrat"
 
-#: admin/permissionadmin.py:94
+#: admin/permissionadmin.py:75
 msgid "View restriction"
 msgstr "Restricció de vista"
 
-#: admin/permissionadmin.py:95
+#: admin/permissionadmin.py:76
 msgid "View restrictions"
 msgstr "Restriccions de vista"
 
-#: admin/permissionadmin.py:155 models/permissionmodels.py:76
+#: admin/permissionadmin.py:130 models/permissionmodels.py:97
 msgid "Page permissions"
 msgstr "Permisos de pàgina"
 
-#: admin/permissionadmin.py:156
+#: admin/permissionadmin.py:131
 msgid "User & Group permissions"
 msgstr "Permisos de Usuari i Grup"
 
-#: admin/permissionadmin.py:157
+#: admin/permissionadmin.py:132
 msgid "Page permissions management"
 msgstr "Gestió de permisos de la Pàgina"
 
-#: admin/placeholderadmin.py:151 admin/placeholderadmin.py:192
+#: admin/placeholderadmin.py:190 admin/placeholderadmin.py:216
 msgid "You don't have permission to add content here."
 msgstr "Sense permisos per afegir contingut aquí."
 
-#: admin/placeholderadmin.py:188
+#: admin/placeholderadmin.py:212
 msgid "You don't have permission to add plugins"
 msgstr "Sense permisos per afegir plugins"
 
-#: admin/placeholderadmin.py:289
+#: admin/placeholderadmin.py:344
 msgid "You don't have permission to delete a plugin"
 msgstr "Sense permisos per esborrar un plugin"
 
-#: admin/useradmin.py:25
+#: admin/useradmin.py:26
 msgid "User details"
 msgstr "Detalls de l'usuari"
 
-#: admin/useradmin.py:26
+#: admin/useradmin.py:27
 msgid "Groups"
 msgstr "Grups"
 
-#: admin/useradmin.py:36 templates/cms/toolbar/items/login.html:7
+#: admin/useradmin.py:37 templates/cms/toolbar/items/login.html:7
 msgid "Password"
 msgstr "Contrasenya"
 
 #: admin/dialog/forms.py:9
 msgid "Copy permissions"
 msgstr "Copiar permisos"
-
-#: admin/dialog/forms.py:16
-msgid "Copy moderation"
-msgstr "Copiar moderació"
-
-#: conf/patch.py:28
-msgid "Inherit the template of the nearest ancestor"
-msgstr "Hereta la plantilla del l'ancestre més pròxim"
 
 #: forms/fields.py:19
 msgid "Select a valid site"
@@ -458,449 +468,339 @@ msgstr "Seleccionar un lloc vàlid"
 msgid "Select a valid page"
 msgstr "Seleccionar una pàgina vàlida"
 
-#: forms/widgets.py:174
+#: forms/widgets.py:176
 msgid "Add Another"
 msgstr "Afegir un altre"
 
-#: migrations/0001_initial.py:12 migrations/0001_initial.py:24
-#: migrations/0001_initial.py:75 migrations/0003_remove_placeholder.py:18
-#: migrations/0010_5char_language.py:12 migrations/0010_5char_language.py:15
-#: migrations/0010_5char_language.py:22 migrations/0010_5char_language.py:25
-#: models/pluginmodel.py:82 models/titlemodels.py:11
-#: plugins/inherit/models.py:11
-msgid "language"
-msgstr "llenguatge"
-
-#: migrations/0001_initial.py:13 migrations/0001_initial.py:26
-#: migrations/0001_initial.py:40 migrations/0001_initial.py:78
-#: migrations/0003_remove_placeholder.py:21 models/pagemodel.py:99
-#: models/permissionmodels.py:70 models/titlemodels.py:22
-#: plugins/inherit/forms.py:9 plugins/link/forms.py:9
-#: plugins/link/models.py:12 plugins/link/migrations/0001_initial.py:19
-#: plugins/picture/models.py:22 plugins/teaser/models.py:13
-msgid "page"
-msgstr "pàgina"
-
-#: migrations/0001_initial.py:14 migrations/0004_textobjects.py:12
-#: migrations/0004_textobjects.py:22 models/pluginmodel.py:81
-msgid "position"
-msgstr "posició"
-
-#: migrations/0001_initial.py:15 migrations/0001_initial.py:29
-#: models/pluginmodel.py:84 models/titlemodels.py:23
-msgid "creation date"
-msgstr "cata de creació"
-
-#: migrations/0001_initial.py:16 migrations/0001_initial.py:77
-#: migrations/0003_remove_placeholder.py:20 models/placeholdermodel.py:12
-msgid "slot"
-msgstr "espai"
-
-#: migrations/0001_initial.py:18 models/pluginmodel.py:83
-msgid "plugin_name"
-msgstr "nom_del_connector"
-
-#: migrations/0001_initial.py:25 migrations/0011_title_overwrites.py:12
-#: migrations/0011_title_overwrites.py:15 models/titlemodels.py:12
-#: models/titlemodels.py:13 models/titlemodels.py:21 plugins/file/models.py:25
-#: plugins/file/migrations/0001_initial.py:18 plugins/teaser/models.py:9
-#: plugins/twitter/models.py:6 plugins/twitter/models.py:15
-#: templates/admin/cms/page/change_list_tree.html:6
-msgid "title"
-msgstr "títol"
-
-#: migrations/0001_initial.py:28
-msgid "path"
-msgstr "camí"
-
-#: migrations/0001_initial.py:30 models/titlemodels.py:14
-msgid "slug"
-msgstr "slug"
-
-#: migrations/0001_initial.py:36
-msgid "everybody"
-msgstr "tothom"
-
-#: migrations/0001_initial.py:37 models/permissionmodels.py:21
-msgid "can edit"
-msgstr "pot editar"
-
-#: migrations/0001_initial.py:38 models/permissionmodels.py:18
-msgid "group"
-msgstr "grup"
-
-#: migrations/0001_initial.py:39 models/permissionmodels.py:25
-msgid "can publish"
-msgstr "pot publicar"
-
-#: migrations/0001_initial.py:42
-msgid "type"
-msgstr "tipus"
-
-#: migrations/0001_initial.py:44
-msgid "can change soft-root"
-msgstr "pot canviar l'arrel tova"
-
-#: migrations/0001_initial.py:50 migrations/0006_apphook.py:34
-#: migrations/0006_apphook.py:62
-msgid "status"
-msgstr "estat"
-
-#: migrations/0001_initial.py:53
-msgid "navigation extenders"
-msgstr "extensions a la navegació"
-
-#: migrations/0001_initial.py:54 migrations/0006_apphook.py:12
-#: migrations/0006_apphook.py:46 models/titlemodels.py:16
-msgid "has url overwrite"
-msgstr "té sobreescrita la url"
-
-#: migrations/0001_initial.py:55 migrations/0006_apphook.py:49
-msgid "url overwrite"
-msgstr "sobreescriu la url"
-
-#: migrations/0001_initial.py:57
-msgid "author"
-msgstr "autor"
-
-#: migrations/0001_initial.py:58 migrations/0006_apphook.py:37
-msgid "reverse url id"
-msgstr "inverteix la id de la url"
-
-#: migrations/0001_initial.py:59 models/pagemodel.py:79
-msgid "login required"
-msgstr "necessita identificació"
-
-#: migrations/0001_initial.py:60 models/pagemodel.py:64
-msgid "soft root"
-msgstr "arrel tova"
-
-#: migrations/0001_initial.py:63 models/pagemodel.py:62
-msgid "publication end date"
-msgstr "data final de publicació"
-
-#: migrations/0001_initial.py:64 models/pagemodel.py:69
-#: plugins/snippet/models.py:14
-msgid "template"
-msgstr "plantilla"
-
-#: migrations/0001_initial.py:66 models/pagemodel.py:61
-msgid "publication date"
-msgstr "data de publicació"
-
-#: migrations/0001_initial.py:67 models/pagemodel.py:63
-#: templates/admin/cms/page/change_list_tree.html:9
-msgid "in navigation"
-msgstr "en la navegació"
-
-#: migrations/0006_apphook.py:15 migrations/0007_apphook_longer.py:11
-#: migrations/0007_apphook_longer.py:17 models/titlemodels.py:17
-msgid "application"
-msgstr "aplicació"
-
-#: migrations/0006_apphook.py:65 models/pagemodel.py:65
-msgid "id"
-msgstr "id"
-
-#: migrations/0008_redirects.py:11 models/titlemodels.py:18
-msgid "redirect"
-msgstr "redirecciona"
-
-#: migrations/0009_added_meta_fields.py:12 models/titlemodels.py:20
-msgid "keywords"
-msgstr "claus"
-
-#: migrations/0009_added_meta_fields.py:15 models/titlemodels.py:19
-#: plugins/teaser/models.py:20
-msgid "description"
-msgstr "descripció"
-
-#: models/moderatormodels.py:25
-msgid "Current page"
-msgstr "Pàgina actual"
-
-#: models/moderatormodels.py:26
-msgid "Page children (immediate)"
-msgstr "Fill de la pàgina (immediats)"
-
-#: models/moderatormodels.py:27
-msgid "Page and children (immediate)"
-msgstr "Pàgina i fills (immediats)"
-
-#: models/moderatormodels.py:28
-msgid "Page descendants"
-msgstr "Descendents de la pàgina"
-
-#: models/moderatormodels.py:29
-msgid "Page and descendants"
-msgstr "Pàgina i descendents"
-
-#: models/moderatormodels.py:46
-#: templates/admin/cms/page/moderation_messages.html:6
-#: templates/admin/cms/page/permissions.html:6
-msgid "User"
-msgstr "Usuari"
-
-#: models/moderatormodels.py:50 templatetags/cms_admin.py:147
-msgid "Moderate page"
-msgstr "Modera la pàgina"
-
-#: models/moderatormodels.py:51 templatetags/cms_admin.py:148
-msgid "Moderate children"
-msgstr "Modera els fills"
-
-#: models/moderatormodels.py:52 templatetags/cms_admin.py:149
-msgid "Moderate descendants"
-msgstr "Modera els descendents"
-
-#: models/moderatormodels.py:55 models/moderatormodels.py:56
-msgid "PageModerator"
-msgstr "ModeradorDePagina"
-
-#: models/moderatormodels.py:99
+#: models/moderatormodels.py:24
 msgid "created"
 msgstr "creat"
 
-#: models/moderatormodels.py:100 models/pagemodel.py:39
+#: models/moderatormodels.py:25
 msgid "changed"
 msgstr "modificat"
 
-#: models/moderatormodels.py:101
-msgid "delete req."
-msgstr "esborrar req."
-
-#: models/moderatormodels.py:102
-msgid "move req."
-msgstr "moure req."
-
-#: models/moderatormodels.py:103
-msgid "publish req."
-msgstr "publicar req."
-
-#: models/moderatormodels.py:104
-msgid "unpublish req."
-msgstr "despublicar req."
-
-#: models/moderatormodels.py:105 models/pagemodel.py:42
-msgid "approved"
-msgstr "aprovat"
-
-#: models/moderatormodels.py:117
+#: models/moderatormodels.py:37
 msgid "Page moderator state"
 msgstr "Estat de moderació de la pàgina"
 
-#: models/moderatormodels.py:118
+#: models/moderatormodels.py:38
 msgid "Page moderator states"
 msgstr "Estats de moderació de la pàgina"
 
-#: models/pagemodel.py:40
-msgid "req. app."
-msgstr "app. req."
-
-#: models/pagemodel.py:41 templates/admin/cms/page/menu_item.html:44
-#: templates/cms/toolbar/toolbar.html:66 utils/moderator.py:90
-msgid "delete"
-msgstr "borra"
-
-#: models/pagemodel.py:43
-msgid "app. par."
-msgstr "app. par."
-
-#: models/pagemodel.py:47
+#: models/pagemodel.py:34
 msgid "for logged in users only"
 msgstr "momés per usuaris identificats"
 
-#: models/pagemodel.py:48
+#: models/pagemodel.py:35
 msgid "for anonymous users only"
 msgstr "només per usuaris anònims"
 
-#: models/pagemodel.py:56
+#: models/pagemodel.py:45
 msgid "created by"
 msgstr "creat per"
 
-#: models/pagemodel.py:57 templates/admin/cms/page/change_list_tree.html:20
+#: models/pagemodel.py:46 templates/admin/cms/page/change_list_tree.html:15
 msgid "changed by"
 msgstr "modificat per"
 
-#: models/pagemodel.py:61
+#: models/pagemodel.py:51
+msgid "publication date"
+msgstr "data de publicació"
+
+#: models/pagemodel.py:52
 msgid ""
 "When the page should go live. Status must be \"Published\" for page to go "
 "live."
 msgstr "Quan la pàgina ha d'anar a producció l'estat ha de ser \"Publicat\"."
 
-#: models/pagemodel.py:62
+#: models/pagemodel.py:53
+msgid "publication end date"
+msgstr "data final de publicació"
+
+#: models/pagemodel.py:54
 msgid "When to expire the page. Leave empty to never expire."
 msgstr "Quan expira la pàgina. Deixa buit perquè no caduqui mai."
 
-#: models/pagemodel.py:64
+#: models/pagemodel.py:56 templates/admin/cms/page/change_list_tree.html:9
+msgid "in navigation"
+msgstr "en la navegació"
+
+#: models/pagemodel.py:57
+msgid "soft root"
+msgstr "arrel tova"
+
+#: models/pagemodel.py:58
 msgid "All ancestors will not be displayed in the navigation"
 msgstr "Tots els avantpassats no es mostraran al menú de navegació"
 
-#: models/pagemodel.py:65
+#: models/pagemodel.py:59
+msgid "id"
+msgstr "id"
+
+#: models/pagemodel.py:60
 msgid ""
 "An unique identifier that is used with the page_url templatetag for linking "
 "to this page"
-msgstr ""
-"Un identificador únic que s'utilitza amb el page_url_templatetag per "
-"enllaçar-se a aquesta pàgina"
+msgstr "Un identificador únic que s'utilitza amb el page_url_templatetag per enllaçar-se a aquesta pàgina"
 
-#: models/pagemodel.py:66
+#: models/pagemodel.py:61
 msgid "attached menu"
 msgstr "menú adjunt"
 
-#: models/pagemodel.py:67
+#: models/pagemodel.py:62
 msgid "is published"
 msgstr "publicada"
 
-#: models/pagemodel.py:69
+#: models/pagemodel.py:64 plugins/snippet/models.py:14
+msgid "template"
+msgstr "plantilla"
+
+#: models/pagemodel.py:65
 msgid "The template used to render the content."
 msgstr "La plantilla utilitza per representar el contingut."
 
-#: models/pagemodel.py:70
+#: models/pagemodel.py:66
 msgid "The site the page is accessible at."
 msgstr "El lloc de la pàgina es pot consultar a."
 
-#: models/pagemodel.py:70
+#: models/pagemodel.py:66
 msgid "site"
 msgstr "lloc"
 
-#: models/pagemodel.py:72
-msgid "moderator state"
-msgstr "estat de moderació"
+#: models/pagemodel.py:68
+msgid "login required"
+msgstr "necessita identificació"
 
-#: models/pagemodel.py:80
+#: models/pagemodel.py:69
 msgid "menu visibility"
 msgstr "visibilitat del menú"
 
-#: models/pagemodel.py:80
+#: models/pagemodel.py:71
 msgid "limit when this page is visible in the menu"
 msgstr "limitar quan aquesta pàgina és visible al menú"
 
-#: models/pagemodel.py:100
+#: models/pagemodel.py:96 models/permissionmodels.py:91
+#: models/titlemodels.py:22 plugins/inherit/forms.py:9 plugins/link/forms.py:9
+#: plugins/link/models.py:12 plugins/picture/models.py:23
+#: plugins/teaser/models.py:13
+msgid "page"
+msgstr "pàgina"
+
+#: models/pagemodel.py:97
 msgid "pages"
 msgstr "pàgines"
 
-#: models/pagemodel.py:268
+#: models/pagemodel.py:304
 msgid "Page was copied."
 msgstr "Pàgina copiada"
 
-#: models/pagemodel.py:690
+#: models/pagemodel.py:772
 msgid "default"
 msgstr "defecte"
 
-#: models/permissionmodels.py:22
+#: models/permissionmodels.py:27
+msgid "Current page"
+msgstr "Pàgina actual"
+
+#: models/permissionmodels.py:28
+msgid "Page children (immediate)"
+msgstr "Fill de la pàgina (immediats)"
+
+#: models/permissionmodels.py:29
+msgid "Page and children (immediate)"
+msgstr "Pàgina i fills (immediats)"
+
+#: models/permissionmodels.py:30
+msgid "Page descendants"
+msgstr "Descendents de la pàgina"
+
+#: models/permissionmodels.py:31
+msgid "Page and descendants"
+msgstr "Pàgina i descendents"
+
+#: models/permissionmodels.py:40
+msgid "group"
+msgstr "grup"
+
+#: models/permissionmodels.py:43
+msgid "can edit"
+msgstr "pot editar"
+
+#: models/permissionmodels.py:44
 msgid "can add"
 msgstr "pot afegir"
 
-#: models/permissionmodels.py:23
+#: models/permissionmodels.py:45
 msgid "can delete"
 msgstr "pot eliminar"
 
-#: models/permissionmodels.py:24
+#: models/permissionmodels.py:46
 msgid "can change advanced settings"
 msgstr "Pot canviar la configuració avançada"
 
-#: models/permissionmodels.py:26
+#: models/permissionmodels.py:47
+msgid "can publish"
+msgstr "pot publicar"
+
+#: models/permissionmodels.py:48
 msgid "can change permissions"
 msgstr "pot canviar els permisos"
 
-#: models/permissionmodels.py:26
+#: models/permissionmodels.py:48
 msgid "on page level"
 msgstr "al nivell de pàgina"
 
-#: models/permissionmodels.py:27
+#: models/permissionmodels.py:49
 msgid "can move"
 msgstr "pot moure"
 
-#: models/permissionmodels.py:28
-msgid "can moderate"
-msgstr "pot moderar"
-
-#: models/permissionmodels.py:29
+#: models/permissionmodels.py:50
 msgid "view restricted"
 msgstr "vista restringida"
 
-#: models/permissionmodels.py:29
+#: models/permissionmodels.py:50
 msgid "frontend view restriction"
 msgstr "restricció a la interfície d'usuari"
 
-#: models/permissionmodels.py:52
+#: models/permissionmodels.py:73
 msgid "can recover pages"
 msgstr "pot recuperar pàgines"
 
-#: models/permissionmodels.py:52
+#: models/permissionmodels.py:73
 msgid "can recover any deleted page"
 msgstr "pot recuperar qualsevol pàgina eliminada"
 
-#: models/permissionmodels.py:53
+#: models/permissionmodels.py:74
 msgid "If none selected, user haves granted permissions to all sites."
-msgstr ""
-"Si no hi ha res seleccionat, l'usuari tindrà permisos concedits a tot arreu."
+msgstr "Si no hi ha res seleccionat, l'usuari tindrà permisos concedits a tot arreu."
 
-#: models/permissionmodels.py:53
+#: models/permissionmodels.py:74
 msgid "sites"
 msgstr "llocs"
 
-#: models/permissionmodels.py:58
+#: models/permissionmodels.py:79
 msgid "Page global permission"
 msgstr "Permisos globals de pàgina"
 
-#: models/permissionmodels.py:59
+#: models/permissionmodels.py:80
 msgid "Pages global permissions"
 msgstr "Permisos globals de pàgines"
 
-#: models/permissionmodels.py:69 templates/admin/cms/page/permissions.html:15
+#: models/permissionmodels.py:90 templates/admin/cms/page/permissions.html:15
 msgid "Grant on"
 msgstr "Autoritza a"
 
-#: models/permissionmodels.py:75
+#: models/permissionmodels.py:96
 msgid "Page permission"
 msgstr "Permís de pàgina"
 
-#: models/permissionmodels.py:90
+#: models/permissionmodels.py:111
 msgid "User (page)"
 msgstr "Usuari (pàgina)"
 
-#: models/permissionmodels.py:91
+#: models/permissionmodels.py:112
 msgid "Users (page)"
 msgstr "Usuaris (pàgina)"
 
-#: models/permissionmodels.py:101
+#: models/permissionmodels.py:122
 msgid "User group (page)"
 msgstr "Grup d'usuaris (pàgina)"
 
-#: models/permissionmodels.py:102
+#: models/permissionmodels.py:123
 msgid "User groups (page)"
 msgstr "Grups d'usuaris (pàgina)"
 
+#: models/placeholdermodel.py:12
+msgid "slot"
+msgstr "espai"
+
 #: models/placeholdermodel.py:13 plugins/flash/models.py:9
-#: plugins/flash/migrations/0001_initial.py:16 plugins/googlemap/models.py:36
-#: plugins/video/models.py:13
+#: plugins/googlemap/models.py:36 plugins/video/models.py:13
 msgid "width"
 msgstr "ample"
 
-#: models/pluginmodel.py:142
+#: models/pluginmodel.py:83
+msgid "position"
+msgstr "posició"
+
+#: models/pluginmodel.py:84 models/titlemodels.py:11
+#: plugins/inherit/models.py:11
+msgid "language"
+msgstr "llenguatge"
+
+#: models/pluginmodel.py:85
+msgid "plugin_name"
+msgstr "nom_del_connector"
+
+#: models/pluginmodel.py:86 models/titlemodels.py:23
+msgid "creation date"
+msgstr "cata de creació"
+
+#: models/pluginmodel.py:145
 msgid "<Empty>"
 msgstr "<Buït>"
+
+#: models/titlemodels.py:12 models/titlemodels.py:13 models/titlemodels.py:21
+#: plugins/file/models.py:25 plugins/teaser/models.py:9
+#: plugins/twitter/models.py:6 plugins/twitter/models.py:15
+#: templates/admin/cms/page/change_list_tree.html:6
+msgid "title"
+msgstr "títol"
 
 #: models/titlemodels.py:13
 msgid "overwrite the title in the menu"
 msgstr "sobreescriure el títol al menú"
 
+#: models/titlemodels.py:14
+msgid "slug"
+msgstr "slug"
+
 #: models/titlemodels.py:15
 msgid "Path"
 msgstr "Camí"
+
+#: models/titlemodels.py:16
+msgid "has url overwrite"
+msgstr "té sobreescrita la url"
+
+#: models/titlemodels.py:17
+msgid "application"
+msgstr "aplicació"
+
+#: models/titlemodels.py:18
+msgid "redirect"
+msgstr "redirecciona"
+
+#: models/titlemodels.py:19 plugins/teaser/models.py:20
+msgid "description"
+msgstr "descripció"
+
+#: models/titlemodels.py:20
+msgid "keywords"
+msgstr "claus"
 
 #: models/titlemodels.py:21
 msgid "overwrite the title (html title tag)"
 msgstr "sobreescriure el títol (title tag html)"
 
+#: plugins/utils.py:124
+#, python-format
+msgid "This placeholder already has the maximum number of plugins (%s)."
+msgstr "Aquest marcador de posició ja té el nombre màxim de plugins (%s)."
+
+#: plugins/utils.py:134
+#, python-format
+msgid ""
+"This placeholder already has the maximum number (%(limit)s) of allowed "
+"%(plugin_name)s plugins."
+msgstr "Aquest marcador de posició ja té el nombre màxim permès (%(limit)s) de plugins de %(plugin_name)s."
+
 #: plugins/file/cms_plugins.py:9
 msgid "File"
 msgstr "Arxiu"
 
-#: plugins/file/models.py:24 plugins/file/migrations/0001_initial.py:17
-#: plugins/flash/models.py:8 plugins/flash/migrations/0001_initial.py:18
+#: plugins/file/models.py:24 plugins/flash/models.py:8
 msgid "file"
 msgstr "arxiu"
 
@@ -916,17 +816,15 @@ msgstr "Flash"
 msgid "use swf file"
 msgstr "utilitzar l'arxiu swf"
 
-#: plugins/flash/models.py:10 plugins/flash/migrations/0001_initial.py:19
-#: plugins/googlemap/models.py:38 plugins/video/models.py:14
+#: plugins/flash/models.py:10 plugins/googlemap/models.py:38
+#: plugins/video/models.py:14
 msgid "height"
 msgstr "alçada"
 
 #: plugins/flash/templates/cms/plugins/flash.html:40
 #: plugins/video/templates/cms/plugins/video.html:60
 msgid "Missing flash plugin. Please download the latest Adobe Flash Player: "
-msgstr ""
-"No s'ha trobat el plugin de flash. Descarregar l'última versió d'Adobe Flash "
-"Player:"
+msgstr "No s'ha trobat el plugin de flash. Descarregar l'última versió d'Adobe Flash Player:"
 
 #: plugins/flash/templates/cms/plugins/flash.html:42
 #: plugins/video/templates/cms/plugins/video.html:62
@@ -939,15 +837,15 @@ msgstr "Google Map"
 
 #: plugins/googlemap/cms_plugins.py:19
 msgid "Advanced"
-msgstr ""
+msgstr "Avançat"
 
 #: plugins/googlemap/forms.py:23
 msgid "Must be a positive integer followed by “px” or “%”."
-msgstr ""
+msgstr "Ha de ser un enter positu seguit de \"px\" o \"%\"."
 
 #: plugins/googlemap/forms.py:26
 msgid "Must be a positive integer followed by “px”."
-msgstr ""
+msgstr "Ha de ser un enter positu seguit de \"px\"."
 
 #: plugins/googlemap/models.py:10
 msgid "map title"
@@ -971,7 +869,7 @@ msgstr "contingut addicional"
 
 #: plugins/googlemap/models.py:19
 msgid "Displayed under address in the bubble."
-msgstr ""
+msgstr "Es mostra sota l'adreça dins el globus"
 
 #: plugins/googlemap/models.py:21
 msgid "zoom level"
@@ -1003,11 +901,11 @@ msgstr "planificador de rutes"
 
 #: plugins/googlemap/models.py:37
 msgid "Plugin width (in pixels or percent)."
-msgstr ""
+msgstr "Ample del plugin (en píxels o percentatge)"
 
 #: plugins/googlemap/models.py:39
 msgid "Plugin height (in pixels)."
-msgstr ""
+msgstr "Alçada del plugin (en píxels)."
 
 #: plugins/googlemap/models.py:47
 msgid "Map"
@@ -1033,9 +931,7 @@ msgstr "Es necessari emplenar la llengua o la pàgina"
 msgid ""
 "Choose a page to include its plugins into this placeholder, empty will "
 "choose current page"
-msgstr ""
-"Trieu una pàgina per incloure-hi els connectors en aquest marcador de "
-"posició, deixant-ho buit triarà la pàgina actual"
+msgstr "Trieu una pàgina per incloure-hi els connectors en aquest marcador de posició, deixant-ho buit triarà la pàgina actual"
 
 #: plugins/inherit/models.py:11
 msgid "Optional: the language of the plugins you want"
@@ -1045,15 +941,11 @@ msgstr "Opcional: el llenguatge dels connectors que vols"
 msgid "Link"
 msgstr "Enllaç"
 
-#: plugins/link/models.py:10 plugins/link/migrations/0001_initial.py:18
-#: plugins/link/migrations/0004_larger_link_names.py:11
-#: plugins/link/migrations/0004_larger_link_names.py:17
-#: plugins/snippet/models.py:12 plugins/snippet/migrations/0001_initial.py:17
+#: plugins/link/models.py:10 plugins/snippet/models.py:12
 msgid "name"
 msgstr "nom"
 
-#: plugins/link/models.py:11 plugins/link/migrations/0001_initial.py:16
-#: plugins/picture/models.py:21 plugins/picture/migrations/0001_initial.py:16
+#: plugins/link/models.py:11 plugins/picture/models.py:21
 #: plugins/teaser/models.py:19
 msgid "link"
 msgstr "enllaç"
@@ -1072,31 +964,27 @@ msgstr "Una adreça de correu electrònic té prioritat sobre un enllaç de text
 
 #: plugins/link/models.py:14
 msgid "target"
-msgstr ""
+msgstr "objectiu"
 
 #: plugins/link/models.py:15
 msgid "same window"
-msgstr ""
+msgstr "mateixa finestra"
 
 #: plugins/link/models.py:16
 msgid "new window"
-msgstr ""
+msgstr "nova finestra"
 
 #: plugins/link/models.py:17
 msgid "parent window"
-msgstr ""
+msgstr "finestra pare"
 
 #: plugins/link/models.py:18
 msgid "topmost frame"
-msgstr ""
+msgstr "marc superior"
 
 #: plugins/picture/cms_plugins.py:9
 msgid "Picture"
 msgstr "Imatge"
-
-#: plugins/picture/models.py:14
-msgid "center"
-msgstr "centre"
 
 #: plugins/picture/models.py:15
 msgid "left"
@@ -1106,34 +994,55 @@ msgstr "esquerra"
 msgid "right"
 msgstr "dret"
 
-#: plugins/picture/models.py:20 plugins/picture/migrations/0001_initial.py:17
-#: plugins/teaser/models.py:10 plugins/video/models.py:11
+#: plugins/picture/models.py:17
+msgid "center"
+msgstr "centre"
+
+#: plugins/picture/models.py:20 plugins/teaser/models.py:10
+#: plugins/video/models.py:11
 msgid "image"
 msgstr "imatge"
 
-#: plugins/picture/models.py:21 plugins/picture/models.py:22
-msgid "if present image will be clickable"
-msgstr "si hi és la imatge actual es podrà clicar"
+#: plugins/picture/models.py:22
+msgid "If present, clicking on image will take user to link."
+msgstr "Si existeix, clicant sobre la imatge portarà l'usuari a l'enllaç."
 
-#: plugins/picture/models.py:23 plugins/picture/migrations/0001_initial.py:19
+#: plugins/picture/models.py:24
+msgid ""
+"If present, clicking on image will take user         to specified page."
+msgstr "Si existeix, clicant sobre la imatge portarà l'usuari a la pàgina especificada."
+
+#: plugins/picture/models.py:26
 msgid "alternate text"
 msgstr "text alternatiu"
 
-#: plugins/picture/models.py:23
-msgid "textual description of the image"
-msgstr "descripció textual de la imatge"
+#: plugins/picture/models.py:27
+msgid ""
+"Specifies an alternate text for an image, if         the image cannot be "
+"displayed.<br />Is also used by search engines to         classify the "
+"image."
+msgstr "Especifica un text alternatiu per a una image, en cas que la imatge no es pugui mostrar.<br />També és utilitzat pels cercadors per a classificar la imatge."
 
-#: plugins/picture/models.py:24
+#: plugins/picture/models.py:30
 msgid "long description"
 msgstr "descripció llarga"
 
-#: plugins/picture/models.py:24
-msgid "additional description of the image"
-msgstr "descripció addicional de la imatge"
+#: plugins/picture/models.py:31
+msgid ""
+"When user hovers above picture,        this text will appear in a popup."
+msgstr "Quan l'usuari passi el cursor per sobre la imatge, aquest text apareixerà en un"
 
-#: plugins/picture/models.py:25
+#: plugins/picture/models.py:33
 msgid "side"
 msgstr "costat"
+
+#: plugins/picture/models.py:34
+msgid "Move image left, right or center."
+msgstr "Moure imatge a l'esquerra, dreta o centre."
+
+#: plugins/picture/models.py:51
+msgid "You can enter a Link or a Page, but not both."
+msgstr "Es pot introduir un Enllaç o una Pàgina, però no ambdós."
 
 #: plugins/snippet/cms_plugins.py:12 plugins/snippet/models.py:24
 #: plugins/snippet/models.py:32
@@ -1145,16 +1054,14 @@ msgstr "Fragment"
 msgid "Template %(template)s does not exist."
 msgstr "La plantilla %(template)s no existeix."
 
-#: plugins/snippet/models.py:13 plugins/snippet/migrations/0001_initial.py:18
+#: plugins/snippet/models.py:13
 msgid "HTML"
 msgstr "HTML"
 
 #: plugins/snippet/models.py:15
 msgid ""
 "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be rendered. "
-msgstr ""
-"Introduex la plantilla (i.e. \"snippets/plugin_xy.html\") que serà "
-"renderitzada. "
+msgstr "Introduex la plantilla (i.e. \"snippets/plugin_xy.html\") que serà renderitzada. "
 
 #: plugins/snippet/models.py:25
 msgid "Snippets"
@@ -1181,7 +1088,7 @@ msgstr "més"
 msgid "Text"
 msgstr "Text"
 
-#: plugins/text/models.py:14 plugins/text/migrations/0001_initial.py:16
+#: plugins/text/models.py:14
 msgid "body"
 msgstr "cos"
 
@@ -1258,8 +1165,7 @@ msgstr "ajuda de l'enllaç"
 
 #: plugins/twitter/models.py:9
 msgid "If given, the hint is displayed as link to your Twitter profile."
-msgstr ""
-"Si s'indica, l'ajuda es mostrarà com a enllaç al seu perfil de Twitter."
+msgstr "Si s'indica, l'ajuda es mostrarà com a enllaç al seu perfil de Twitter."
 
 #: plugins/twitter/models.py:16
 msgid "query"
@@ -1270,10 +1176,7 @@ msgid ""
 "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
 "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
 "\"brains\" and \"zombies\""
-msgstr ""
-"Exemple: \"cervells AND zombis AND from:paraigues AND to:nemesis\": tweets "
-"de l'usuari \"paraigues\" a l'usuari \"nemesis\" que conté les paraules "
-"\"cervells\" i \"zombis\""
+msgstr "Exemple: \"cervells AND zombis AND from:paraigues AND to:nemesis\": tweets de l'usuari \"paraigues\" a l'usuari \"nemesis\" que conté les paraules \"cervells\" i \"zombis\""
 
 #: plugins/twitter/templates/cms/plugins/twitter_recent_entries.html:14
 msgid "we said,"
@@ -1321,11 +1224,9 @@ msgstr "url de la película"
 
 #: plugins/video/models.py:10
 msgid ""
-"vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
-"iJ7bs4mTUY"
-msgstr ""
-"url de video de vimeo o youtubel. Exemple: http://www.youtube.com/watch?v=-"
-"iJ7bs4mTUY"
+"vimeo or youtube video url. Example: "
+"http://www.youtube.com/watch?v=-iJ7bs4mTUY"
+msgstr "url de video de vimeo o youtubel. Exemple: http://www.youtube.com/watch?v=-iJ7bs4mTUY"
 
 #: plugins/video/models.py:11
 msgid "preview image file"
@@ -1387,7 +1288,7 @@ msgid "button highlight color"
 msgstr "color de ressaltat del botó"
 
 #: templates/admin/page_submit_line.html:3
-#: templates/admin/cms/page/change_form.html:277
+#: templates/admin/cms/page/change_form.html:161
 #: templates/admin/cms/page/plugin_change_form.html:119
 msgid "Save"
 msgstr "Desa"
@@ -1406,7 +1307,7 @@ msgid "Save and add another"
 msgstr "Desar i afegir un altre"
 
 #: templates/admin/page_submit_line.html:13
-#: templates/admin/cms/page/change_form.html:278
+#: templates/admin/cms/page/change_form.html:162
 msgid "Save and continue editing"
 msgstr "Guardar i continuar editant"
 
@@ -1415,8 +1316,7 @@ msgstr "Guardar i continuar editant"
 #, python-format
 msgid ""
 "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by you."
-msgstr ""
-"La pàgina <a href=\"%(admin_url)s\">%(page)s</a> pot requerir que l'aprovis."
+msgstr "La pàgina <a href=\"%(admin_url)s\">%(page)s</a> pot requerir que l'aprovis."
 
 #: templates/admin/cms/mail/approvement_required.html:8
 #: templates/admin/cms/mail/approvement_required.txt:7
@@ -1431,7 +1331,7 @@ msgstr "Entra en l'administració <a href=\"%(login_url)s\">aquí</a> ."
 #: templates/admin/cms/mail/base.txt:8
 #, python-format
 msgid "Login url: %(login_url)s"
-msgstr ""
+msgstr "Url d'autenticació: %(login_url)s"
 
 #: templates/admin/cms/mail/page_user_change.html:7
 #: templates/admin/cms/mail/page_user_change.txt:5
@@ -1449,7 +1349,7 @@ msgstr "Contrasenya:"
 msgid "Change a page"
 msgstr "Canviar una pàgina"
 
-#: templates/admin/cms/page/change_form.html:65
+#: templates/admin/cms/page/change_form.html:70
 #: templates/admin/cms/page/change_list.html:8
 #: templates/admin/cms/page/plugin_change_form.html:73
 #: templates/admin/cms/page/recover_form.html:14
@@ -1457,83 +1357,47 @@ msgstr "Canviar una pàgina"
 msgid "Home"
 msgstr "Inici"
 
-#: templates/admin/cms/page/change_form.html:74
-msgid "Approve page deletion"
-msgstr "Aprovar la supressió de la plana"
+#: templates/admin/cms/page/change_form.html:83
+msgid "Publish draft"
+msgstr ""
 
-#: templates/admin/cms/page/change_form.html:80
-#, python-format
-msgid "(requires approvement at %(moderation_level)s level)"
-msgstr "(Requereix confirmació a nivell %(moderation_level)s )"
+#: templates/admin/cms/page/change_form.html:84
+msgid "Preview draft"
+msgstr "Previsualització prèvia"
 
-#: templates/admin/cms/page/change_form.html:81
-msgid "(you can perform actions on this page directly)"
-msgstr "(Es poden dur a terme accions en aquesta pàgina directament)"
+#: templates/admin/cms/page/change_form.html:86
+msgid "Revert to public"
+msgstr "Revertir a públic"
 
-#: templates/admin/cms/page/change_form.html:94
-msgid "Remove delete request"
-msgstr "Traieu eliminar petició"
-
-#: templates/admin/cms/page/change_form.html:96
-msgid "Approve delete"
-msgstr "Aprovar eliminar"
-
-#: templates/admin/cms/page/change_form.html:96
-msgid "Approve"
-msgstr "Aprovar"
-
-#: templates/admin/cms/page/change_form.html:96
-#: templates/admin/cms/page/change_form.html:97
-#: templates/admin/cms/page/change_list_tree.html:12
-msgid "draft"
-msgstr "esborrany"
-
-#: templates/admin/cms/page/change_form.html:97
-msgid "Preview"
-msgstr "Visualització prèvia"
-
-#: templates/admin/cms/page/change_form.html:100
+#: templates/admin/cms/page/change_form.html:87
 #: templates/admin/cms/page/revision_form.html:10
 msgid "History"
 msgstr "Història"
 
-#: templates/admin/cms/page/change_form.html:101
+#: templates/admin/cms/page/change_form.html:88
 msgid "View on site"
 msgstr "Veure en el lloc"
 
-#: templates/admin/cms/page/change_form.html:131
+#: templates/admin/cms/page/change_form.html:118
 #: templates/admin/cms/page/plugin_change_form.html:90
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] "Si us plau, corregiu l'error de sota."
 msgstr[1] "Si us plau, corregiu els errors de sota."
 
-#: templates/admin/cms/page/change_form.html:151
+#: templates/admin/cms/page/change_form.html:138
 msgid "All permissions"
 msgstr "Tots els permisos"
 
-#: templates/admin/cms/page/change_form.html:152
-#: templates/admin/cms/page/change_form.html:164
+#: templates/admin/cms/page/change_form.html:139
+#: templates/admin/cms/page/change_form.html:150
 #: templates/admin/cms/page/loading.html:2
 msgid "Loading..."
 msgstr "Carregant ..."
 
-#: templates/admin/cms/page/change_form.html:163
+#: templates/admin/cms/page/change_form.html:149
 msgid "Page states"
 msgstr "Estat de la pàgina"
-
-#: templates/admin/cms/page/change_form.html:188
-#, python-format
-msgid ""
-"This page must be moderated at level %(moderation_level)s, post a message "
-"for moderator."
-msgstr ""
-"Aquesta pàgina ha de ser moderat en el nivell %(moderation_level)s , envia "
-"un missatge per al moderador."
-
-#: templates/admin/cms/page/change_form.html:190
-msgid "Request approvemet"
-msgstr "Sol.licitud d'aprovació"
 
 #: templates/admin/cms/page/change_list.html:3
 msgid "List of pages"
@@ -1547,33 +1411,33 @@ msgstr "Tralladat amb èxit"
 msgid "An error occured. Please reload the page"
 msgstr "S'ha produït un error. Si us plau, torneu a carregar la pàgina"
 
-#: templates/admin/cms/page/change_list.html:90
+#: templates/admin/cms/page/change_list.html:89
 #, python-format
 msgid "Recover deleted %(name)s"
 msgstr "Recuperar %(name)s "
 
-#: templates/admin/cms/page/change_list.html:93
+#: templates/admin/cms/page/change_list.html:92
 #, python-format
 msgid "Add %(name)s"
 msgstr "Afegir %(name)s "
 
-#: templates/admin/cms/page/change_list.html:105
+#: templates/admin/cms/page/change_list.html:104
 msgid "Pages on:"
 msgstr "Les pàgines a:"
 
-#: templates/admin/cms/page/change_list.html:122
+#: templates/admin/cms/page/change_list.html:121
 msgid "Filter:"
 msgstr "Filtre:"
 
-#: templates/admin/cms/page/change_list.html:122
+#: templates/admin/cms/page/change_list.html:121
 msgid "on"
 msgstr "a"
 
-#: templates/admin/cms/page/change_list.html:122
+#: templates/admin/cms/page/change_list.html:121
 msgid "off"
 msgstr "de"
 
-#: templates/admin/cms/page/change_list.html:124
+#: templates/admin/cms/page/change_list.html:123
 msgid "Filter"
 msgstr "Filtre"
 
@@ -1582,26 +1446,22 @@ msgid "actions"
 msgstr "accions"
 
 #: templates/admin/cms/page/change_list_tree.html:10
-msgid "moderate"
-msgstr "moderat"
-
-#: templates/admin/cms/page/change_list_tree.html:13
 msgid "published"
 msgstr "publicat"
 
-#: templates/admin/cms/page/change_list_tree.html:15
+#: templates/admin/cms/page/change_list_tree.html:11
 msgid "start"
 msgstr "inici"
 
-#: templates/admin/cms/page/change_list_tree.html:16
+#: templates/admin/cms/page/change_list_tree.html:12
 msgid "end"
 msgstr "final"
 
-#: templates/admin/cms/page/change_list_tree.html:17
+#: templates/admin/cms/page/change_list_tree.html:13
 msgid "restricted"
 msgstr "restringit"
 
-#: templates/admin/cms/page/change_list_tree.html:19
+#: templates/admin/cms/page/change_list_tree.html:14
 msgid "last changes"
 msgstr "darrers canvis"
 
@@ -1670,23 +1530,22 @@ msgstr "Afegir fill"
 msgid "add"
 msgstr "afegir"
 
-#: templates/admin/cms/page/menu_item.html:61
-msgid "Approve directly"
-msgstr "Aprovar directament"
+#: templates/admin/cms/page/menu_item.html:44
+#: templates/cms/toolbar/toolbar.html:66
+msgid "delete"
+msgstr "borra"
 
-#: templates/admin/cms/page/menu_item.html:63
-#: templates/admin/cms/page/menu_item.html:75
-#: templates/admin/cms/page/menu_item.html:77
-msgid "view"
-msgstr "veure"
-
-#: templates/admin/cms/page/menu_item.html:68
+#: templates/admin/cms/page/menu_item.html:57
 msgid "Unpublish"
 msgstr "No publicar"
 
-#: templates/admin/cms/page/menu_item.html:75
+#: templates/admin/cms/page/menu_item.html:62
 msgid "View on page"
 msgstr "Veure a la pàgina"
+
+#: templates/admin/cms/page/menu_item.html:62
+msgid "view"
+msgstr "veure"
 
 #: templates/admin/cms/page/moderation_messages.html:4
 msgid "Action"
@@ -1695,6 +1554,11 @@ msgstr "Acció"
 #: templates/admin/cms/page/moderation_messages.html:5
 msgid "Created"
 msgstr "Creat"
+
+#: templates/admin/cms/page/moderation_messages.html:6
+#: templates/admin/cms/page/permissions.html:6
+msgid "User"
+msgstr "Usuari"
 
 #: templates/admin/cms/page/moderation_messages.html:7
 msgid "Message"
@@ -1760,7 +1624,7 @@ msgstr "Una revisió antiga d'un connector no es pot guardar!"
 
 #: templates/admin/cms/page/plugin_forms_ok.html:26
 msgid "Your changes to this plugin have not been saved."
-msgstr ""
+msgstr "No s'han desat els canvis d'aquest plugin."
 
 #: templates/admin/cms/page/plugin_forms_ok.html:26
 msgid "Plugin saved successfully."
@@ -1818,8 +1682,7 @@ msgstr "Ho has seleccionat cap connector. Tria'n un de l'esquerra"
 
 #: templates/admin/cms/page/widgets/plugin_editor.html:17
 msgid "No Plugins present. Add a plugin to this placeholder-slot."
-msgstr ""
-"No hi ha connectors. Afegir un connector per aquest marcador de posició."
+msgstr "No hi ha connectors. Afegir un connector per aquest marcador de posició."
 
 #: templates/cms/toolbar/placeholder.html:33
 msgid "Available plugins"
@@ -1842,6 +1705,10 @@ msgid "down"
 msgstr "avall"
 
 #: templates/cms/toolbar/toolbar.html:70
+msgid "Add child plugin"
+msgstr "Afegir plugin fill"
+
+#: templates/cms/toolbar/toolbar.html:73
 msgid "Move to placeholder"
 msgstr "Moure al marcador de posició"
 
@@ -1854,130 +1721,127 @@ msgstr "Nom d'usuari"
 msgid "Login"
 msgstr "Iniciar sessió"
 
-#: templates/cms/toolbar/items/status.html:2
-msgid "Status"
-msgstr "Estat"
-
 #: templates/cms/toolbar/items/switcher.html:4
 msgid "Switch on/off"
 msgstr "Activar/desactivar"
 
-#: templatetags/cms_admin.py:127 templatetags/cms_admin.py:134
+#: templatetags/cms_admin.py:129 templatetags/cms_admin.py:136
 #, python-format
 msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
 msgstr "<span title=\"Restriccions: %(title)s\">%(icon)s</span>"
 
-#: templatetags/cms_admin.py:147
-msgid "Unbind page moderation"
-msgstr "Deslligar la moderació de pàgina"
-
-#: templatetags/cms_admin.py:148
-msgid "Unbind children moderation"
-msgstr "Deslligar la moderació de fills"
-
-#: templatetags/cms_admin.py:149
-msgid "Unbind descendants moderation"
-msgstr "Deslligar la moderació de descendents"
-
-#: templatetags/cms_tags.py:79
+#: templatetags/cms_tags.py:85
 #, python-format
 msgid "Page not found on %(domain)s"
 msgstr "Pàgina no trobada a %(domain)s"
 
-#: templatetags/cms_tags.py:80
+#: templatetags/cms_tags.py:86
 #, python-format
 msgid ""
-"A template tag couldn't find the page with lookup arguments `"
-"%(page_lookup)s\n"
+"A template tag couldn't find the page with lookup arguments `%(page_lookup)s\n"
 "`. The URL of the request was: http://%(host)s%(path)s"
-msgstr ""
-"Una etiqueta de la plantilla no ha pogut trobat la pàgina amb els arguments "
-"de lookup `%(page_lookup)s\n"
-"`. La URL de la petició ha estat: http://%(host)s%(path)s"
+msgstr "Una etiqueta de la plantilla no ha pogut trobat la pàgina amb els arguments de lookup `%(page_lookup)s\n`. La URL de la petició ha estat: http://%(host)s%(path)s"
 
-#: test_utils/cli.py:100 test_utils/cli.py:107
+#: test_utils/cli.py:106 test_utils/cli.py:116
 msgid "English"
-msgstr ""
+msgstr "Anglès"
 
-#: test_utils/cli.py:101 test_utils/cli.py:108
+#: test_utils/cli.py:107 test_utils/cli.py:128 test_utils/cli.py:146
 msgid "French"
-msgstr ""
+msgstr "Francès"
 
-#: test_utils/cli.py:102 test_utils/cli.py:109
+#: test_utils/cli.py:108 test_utils/cli.py:122 test_utils/cli.py:140
+#: test_utils/cli.py:159
 msgid "German"
-msgstr ""
+msgstr "Alemany"
 
-#: test_utils/cli.py:103 test_utils/cli.py:110
-msgid "Brazil"
-msgstr ""
+#: test_utils/cli.py:109 test_utils/cli.py:133
+msgid "Brazilian Portuguese"
+msgstr "Portuguès Brasiler"
 
-#: test_utils/cli.py:104 test_utils/cli.py:111
+#: test_utils/cli.py:110 test_utils/cli.py:153
 msgid "Dutch"
-msgstr ""
+msgstr "Holandès"
 
-#: test_utils/cli.py:128
+#: test_utils/cli.py:169
 msgid "two columns"
-msgstr ""
+msgstr "dues columnes"
 
-#: test_utils/cli.py:129
+#: test_utils/cli.py:170
 msgid "three columns"
-msgstr ""
+msgstr "tres columnes"
 
-#: test_utils/cli.py:130
+#: test_utils/cli.py:171
 msgid "navigation examples"
-msgstr ""
+msgstr "exemples de navegació"
 
-#: test_utils/cli.py:136
+#: test_utils/cli.py:177
 msgid "sidebar column"
 msgstr "background color"
 
-#: test_utils/cli.py:142
+#: test_utils/cli.py:183
 msgid "left column"
 msgstr "background color"
 
-#: test_utils/cli.py:148
+#: test_utils/cli.py:189
 msgid "right column"
 msgstr "background color"
 
 #: test_utils/project/placeholderapp/cms_plugins.py:7
 msgid "Test Plugin"
-msgstr ""
+msgstr "Prova l'Extensió"
 
 #: test_utils/project/pluginapp/plugins/extra_context/cms_plugins.py:9
 msgid "Extra Context"
-msgstr ""
+msgstr "Contexte Extra"
 
 #: test_utils/project/pluginapp/plugins/manytomany_rel/cms_plugins.py:13
 msgid "Articles"
-msgstr ""
+msgstr "Articles"
 
 #: test_utils/project/sampleapp/cms_app.py:7
 msgid "Sample App"
-msgstr ""
+msgstr "App de prova"
+
+#: test_utils/project/sampleapp/cms_app.py:15
+msgid "Sample App 2"
+msgstr "App de prova 2"
+
+#: test_utils/project/sampleapp/cms_app.py:22
+msgid "Namespaced App"
+msgstr "App amb espai de noms"
 
 #: test_utils/project/sampleapp/menu.py:16
 msgid "sample root page"
-msgstr ""
+msgstr "pàgina arrel de prova"
 
 #: test_utils/project/sampleapp/menu.py:17
 msgid "sample settings page"
-msgstr ""
+msgstr "pàgina de paràmetres de prova"
 
 #: test_utils/project/sampleapp/menu.py:18
 msgid "sample account page"
-msgstr ""
+msgstr "Pàgina de compte de prova"
 
 #: test_utils/project/sampleapp/menu.py:19
 msgid "sample my profile page"
-msgstr ""
+msgstr "Pàgina del meu perfil de prova"
 
 #: test_utils/project/sampleapp/menu.py:31
 msgid "Static Menu"
-msgstr ""
+msgstr "Menú estàtic"
 
 #: test_utils/project/sampleapp/menu.py:47
 msgid "Static Menu2"
-msgstr ""
+msgstr "Menú estàtic 2"
+
+#: test_utils/project/sampleapp/urls.py:12
+msgid "^account/$"
+msgstr "^compte/$"
+
+#: utils/conf.py:81
+msgid "Inherit the template of the nearest ancestor"
+msgstr "Hereta la plantilla del l'ancestre més pròxim"
 
 #: utils/mail.py:37
 msgid "CMS - your user account was created."
@@ -1987,31 +1851,43 @@ msgstr "CMS - el teu compte d'usuari s'ha creat."
 msgid "CMS - your user account was changed."
 msgstr "CMS - el teu compte d'usuari ha canviat."
 
-#: utils/moderator.py:83
-msgid "parent first"
-msgstr "primer pare"
-
-#: utils/moderator.py:90
-msgid "approve"
-msgstr "aprovar"
-
-#: utils/moderator.py:251
-#, python-format
-msgid "CMS - Page %s requires approvement."
-msgstr "CMS - La pàgina %s requereix aprovació."
-
-#: utils/page_resolver.py:146
+#: utils/page_resolver.py:165
 msgid "Invalid URL, use /my/url format."
 msgstr "URL no vàlida, utilitzeu  el format /meu/url. "
 
-#: utils/page_resolver.py:176
+#: utils/page_resolver.py:197
 #, python-format
 msgid ""
 "Page %(pages)s has the same url '%(url)s' as current page \"%(instance)s\"."
 msgid_plural ""
-"Pages %(pages)s have the same url '%(url)s' as current page \"%(instance)s\"."
-msgstr[0] ""
-msgstr[1] ""
+"Pages %(pages)s have the same url '%(url)s' as current page "
+"\"%(instance)s\"."
+msgstr[0] "La pàgina %(pages)s té la mateixa url '%(url)s' que la pàgina actual \"%(instance)s\"."
+msgstr[1] "Les pàgines %(pages)s té la mateixa url '%(url)s' que la pàgina actual \"%(instance)s\"."
+
+#~ msgid "delete req."
+#~ msgstr "deletion request"
+
+#~ msgid "move req."
+#~ msgstr "move request"
+
+#~ msgid "url overwrite"
+#~ msgstr "URL overwrite"
+
+#~ msgid "unpublish req."
+#~ msgstr "unpublish request"
+
+#~ msgid "req. app."
+#~ msgstr "approval required"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(requires approval at %(moderation_level)s level)"
+
+#~ msgid "Request approvemet"
+#~ msgstr "Request approval"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - Page %s requires approval."
 
 #~ msgid "move"
 #~ msgstr "move request"

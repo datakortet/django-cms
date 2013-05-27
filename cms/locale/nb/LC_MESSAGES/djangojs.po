@@ -2,19 +2,22 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# Sindre Myren <smyrman@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-14 09:45-0500\n"
-"PO-Revision-Date: 2011-03-22 15:38+0000\n"
-"Last-Translator: ojii <me@ojii.ch>\n"
+"Report-Msgid-Bugs-To: https://github.com/divio/django-cms/issues\n"
+"POT-Creation-Date: 2011-08-14 09:44-0500\n"
+"PO-Revision-Date: 2013-05-27 11:10+0100\n"
+"Last-Translator: Bjørn Pettersen <bp@datakortet.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: nb\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: static/cms/js/change_form.js:31
 msgid ""
@@ -28,6 +31,8 @@ msgid ""
 "Not all plugins are saved. Are you sure you want to save the page?\n"
 "All unsaved plugin content will tried to save."
 msgstr ""
+"Ikke alle plugins er lagret. Er du sikker på at du vil lagre siden? Alle "
+"ulagrede plugins innhold vil bli forsøkt lagret."
 
 #: static/cms/js/change_form.js:127
 msgid "Are you sure you want to change tabs without saving the page first?"
