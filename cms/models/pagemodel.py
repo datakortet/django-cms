@@ -196,6 +196,15 @@ class Page(MPTTModel):
                 ph.save()
                 target.placeholders.add(ph)
                 # update the page copy
+            except Placeholder.MultipleObjectsReturned:
+                pass
+#                 print "TARGET:", target.__class__, target.id
+#                 print "PLACEHOLDER:", ph
+#                 print "SLOT:", ph.slot
+#                 for plach in target.placeholders.filter(slot=ph.slot):
+#                     print
+#                     print "PLACH:", plach.id, plach, repr(plach), dir(plach)
+                # raise
             if plugins:
                 copy_plugins_to(plugins, ph)
 
@@ -602,15 +611,17 @@ class Page(MPTTModel):
         get the list of all existing languages for this page
         """
         from cms.models.titlemodels import Title
-
-        if len(settings.CMS_LANGUAGES) == 1:
-            # If this is a mono-lingular site, then save one database hit by
-            # inferring that all pages must be in this language.
-            # CMS_LANGUAGES will then be defined like:
-            #    CMS_LANGUAGES = (('nb', 'Norwegian'),)
-            # so get the language code part of the first language tuple.
-            self.all_languages = settings.CMS_LANGUAGES[0][0]
-        elif not hasattr(self, "all_languages"):
+        from django.conf import settings
+        
+        #if len(settings.CMS_LANGUAGES) == 1:
+        #    # If this is a mono-lingular site, then save one database hit by
+        #    # inferring that all pages must be in this language.
+        #    # CMS_LANGUAGES will then be defined like:
+        #    #    CMS_LANGUAGES = (('nb', 'Norwegian'),)
+        #    # so get the language code part of the first language tuple.
+        #    self.all_languages = settings.CMS_LANGUAGES[0][0]
+        #elif not hasattr(self, "all_languages"):
+        if not hasattr(self, "all_languages"):
             self.all_languages = Title.objects.filter(page=self).values_list("language", flat=True).distinct()
             self.all_languages = list(self.all_languages)
             self.all_languages.sort()
