@@ -1,12 +1,27 @@
 {% load i18n sekizai_tags cms_js_tags cms_admin %}
 {% addtoblock "js" %}
 <script type="text/javascript">
-	var _jQuery = window.jQuery || null;
-	var _$ = window.$;
+    var _jQuery = window.jQuery || null;
+    var _$ = window.$;
+
+    // load only 1 jQuery (we don't have jQuery, so must do it the old-fashioned way..)
+    (function () {
+	var loadjs = function (url) {
+	    var script = document.createElement('script');
+	    script.setAttribute("src", url);
+	    document.getElementsByTagName('head')[0].appendChild(script);
+	};
+
+	if (!window.jQuery) {
+	    loadjs("{% admin_static_url %}js/jquery.min.js");
+	}
+
+	if (window.jQuery && !window.jQuery.cookie) {
+	    loadjs("{{ STATIC_URL }}cms/js/libs/jquery.cookie.js");
+	}
+    }());
 </script>
 {% endaddtoblock %}
-{% addtoblock "js" %}<script type="text/javascript" src="{% admin_static_url %}js/jquery.min.js"></script>{% endaddtoblock %}
-{% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}cms/js/libs/jquery.cookie.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}cms/js/libs/classy.min.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}cms/js/plugins/cms.setup.js"></script>{% endaddtoblock %}
 {% addtoblock "js" %}<script type="text/javascript" src="{{ STATIC_URL }}cms/js/plugins/cms.base.js"></script>{% endaddtoblock %}
