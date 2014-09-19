@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from cms.utils import get_cms_setting
+from datakortet.core.adt import pset
 from django.conf import settings
 from django.core.cache import cache
 
@@ -12,16 +13,16 @@ PERMISSION_KEYS = [
     'can_moderate', 'can_view']
 
 
-def get_cache_key(user, key):
+def get_cache_key(username, key):
     return "%s:permission:%s:%s" % (
-        get_cms_setting('CACHE_PREFIX'), user.username, key)
+        get_cms_setting('CACHE_PREFIX'), username, key)
 
 
 def get_permission_cache(user, key):
     """
     Helper for reading values from cache
     """
-    return cache.get(get_cache_key(user, key))
+    return cache.get("CMS_PERM" + get_cache_key(user.username, key))
 
 
 def set_permission_cache(user, key, value):
@@ -30,7 +31,7 @@ def set_permission_cache(user, key, value):
     all of them can be cleaned when clean_permission_cache gets called.
     """
     # store this key, so we can clean it when required
-    cache_key = get_cache_key(user, key)
+    cache_key = "CMS_PERM" + get_cache_key(user.username, key)
     cache.set(cache_key, value, get_cms_setting('CACHE_DURATIONS')['permissions'])
 
 
@@ -39,12 +40,13 @@ def clear_user_permission_cache(user):
     Cleans permission cache for given user.
     """
     for key in PERMISSION_KEYS:
-        cache.delete(get_cache_key(user, key))
+        cache.delete(get_cache_key(user.username, key))
 
 
 def clear_permission_cache():
-    users = User.objects.filter(is_active=True)
-    for user in users:
-        for key in PERMISSION_KEYS:
-            cache_key = get_cache_key(user, key)
-            cache.delete(cache_key)
+    # ED 19.09.2014: Clear the permission cache by deleting according to 
+    # a pattern instead of looping through all users.
+    #users_dict = User.objects.filter(is_active=True).values('username')
+    # for user in users_dict:
+    cache.delete_pattern("CMS_PERM*")
+    #cache.clear()
