@@ -4,23 +4,23 @@
 <header>
 <h1 class="teaser-header">{{ object.title }}</h1>
 </header>
-<div class="row teaser-content">
+<div class="teaser-content">
   {% if object.image %}
-    <div class="span2 teaser-img">
+    <div class="teaser-img">
       {% if link %}<a href="{{ link }}">{% endif %}
         <img src="{{ object.image.url }}" alt="{{ object.title }}">
       {% if link %}</a>{% endif %}
     </div>
   {% endif %}
   {% if object.description %}
-    <div class="span6 teaser-description">
+    <div class="teaser-description">
       {{ object.description|safe }}
     </div>
   {% endif %}
   {% if link %}
-    <div class="span2 teaser-empty">
+    <div class="teaser-empty">
     </div>
-    <div class="span6 teaser-link">
+    <div class="teaser-link">
       <a href="{{ link }}">Les mer her &#187;</a>
     </div>
   {% endif %}
