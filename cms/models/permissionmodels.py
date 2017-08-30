@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.db.models import CASCADE
 from django.utils.translation import ugettext_lazy as _
 
 from django.contrib.auth.models import User, Group
@@ -105,7 +106,11 @@ class PagePermission(AbstractPagePermission):
 class PageUser(User):
     """Cms specific user data, required for permission system
     """
-    created_by = models.ForeignKey(User, related_name="created_users")
+    created_by = models.ForeignKey(
+        User,
+        related_name="created_users",
+        on_delete=CASCADE
+    )
 
     class Meta:
         verbose_name = _('User (page)')
