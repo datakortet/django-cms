@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from cms.exceptions import LanguageError
 from cms.models import Page
 from cms.models.titlemodels import Title
 from cms.utils import i18n
@@ -30,7 +31,11 @@ def update_site_and_page_choices(lang=None):
     site_choices = []
     page_choices = [('', '----')]
     
-    language_order = [lang] + i18n.get_fallback_languages(lang)
+    try:
+        fallbacks = i18n.get_fallback_languages(lang)
+    except LanguageError:
+        fallbacks = []
+    language_order = [lang] + fallbacks
     
     for sitepk, sitename in sites.items():
         site_choices.append((sitepk, sitename))
@@ -81,8 +86,11 @@ def get_page_cache_key(lang):
 
 def _clean_many(prefix):
     keys = []
-    for lang in [language[0] for language in settings.LANGUAGES]:
-        keys.append(_get_key(prefix, lang))
+    if settings.USE_I18N:
+        for lang in [language[0] for language in settings.LANGUAGES]:
+            keys.append(_get_key(prefix, lang))
+    else:
+        keys = [_get_key(prefix, settings.LANGUAGE_CODE)]
     cache.delete_many(keys)
 
 def clean_site_choices_cache(sender, **kwargs):

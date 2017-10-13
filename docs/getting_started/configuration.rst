@@ -187,7 +187,7 @@ The Wymeditor from :mod:`cms.plugins.text` plugin can take the same
 configuration as vanilla Wymeditor. Therefore you will need to learn 
 how to configure that. The best thing to do is to head 
 over to the `Wymeditor examples page 
-<http://files.wymeditor.org/wymeditor/examples/>`_
+<http://files.wymeditor.org/wymeditor-1.0.0b2/examples/>`_
 in order to understand how Wymeditor works. 
 
 The :mod:`cms.plugins.text` plugin exposes several variables named
@@ -505,6 +505,17 @@ If you have a huge site you can easily partition the menu with this.
 *****************
 Advanced Settings
 *****************
+
+CSRF_COOKIE_NAME
+=================
+
+In case you've overwritten the default Django `CSRF_COOKIE_NAME` setting, then you should 
+inform Django-CMS about this by using a context processor dedicated for this. Extend the list
+of `TEMPLATE_CONTEXT_PROCESSORS` with
+
+.. code-block:: python
+
+    'cms.context_processors.csrf_cookie_name',
 
 .. setting:: CMS_PERMISSION
 

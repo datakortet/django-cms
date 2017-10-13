@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from contextlib import contextmanager
-from cms.exceptions import LanguageError
-from cms.utils.conf import get_cms_setting
+
+from django.core.urlresolvers import get_resolver, LocaleRegexURLResolver
 from django.conf import settings
 from django.utils import translation
-from django.utils.translation import ugettext_lazy  as _
+from django.utils.translation import ugettext_lazy as _
+
+from cms.exceptions import LanguageError
+from cms.utils.conf import get_cms_setting
 
 
 @contextmanager
@@ -28,6 +31,19 @@ def get_languages(site_id=None):
             result.append(lang)
         get_cms_setting('LANGUAGES')[site_id] = result
     return result
+
+
+def get_languages_for_user(user):
+    if user and user.is_staff:
+        languages = get_language_list()
+    else:
+        languages = get_public_languages()
+    return languages
+
+
+def get_languages_for_page_user(page, user=None):
+    page_languages = page.get_languages()
+    return [language for language in get_languages_for_user(user) if language in page_languages]
 
 
 def get_language_code(language_code):
@@ -72,6 +88,8 @@ def get_language_list(site_id=None):
     """
     :return: returns a list of iso2codes for this site
     """
+    if not settings.USE_I18N:
+        return [settings.LANGUAGE_CODE]
     languages = []
     for language in get_languages(site_id):
         languages.append(language['code'])
@@ -160,6 +178,7 @@ def get_fallback_languages(language, site_id=None):
     language = get_language_object(language, site_id)
     return language.get('fallbacks', [])
 
+
 def get_redirect_on_fallback(language, site_id=None):
     """
     returns if you should redirect on language fallback
@@ -170,6 +189,7 @@ def get_redirect_on_fallback(language, site_id=None):
     language = get_language_object(language, site_id)
     return language.get('redirect_on_fallback', True)
 
+
 def hide_untranslated(language, site_id=None):
     """
     Should untranslated pages in this language be hidden?
@@ -179,3 +199,14 @@ def hide_untranslated(language, site_id=None):
     """
     obj = get_language_object(language, site_id)
     return obj.get('hide_untranslated', True)
+
+
+def is_language_prefix_patterns_used():
+    """
+    Returns `True` if the `LocaleRegexURLResolver` is used
+    at root level of the urlpatterns, else it returns `False`.
+    """
+    for url_pattern in get_resolver(None).url_patterns:
+        if isinstance(url_pattern, LocaleRegexURLResolver):
+            return True
+    return False

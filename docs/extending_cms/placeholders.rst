@@ -76,6 +76,18 @@ use a `TranslatableModel` model be sure to not include the placeholder fields in
         def __unicode__(self):
             return self.title
 
+Be sure to combine both hvad's :class:`TranslatableAdmin` and :class:`~cms.admin.placeholderadmin.PlaceholderAdmin` when
+registering your model with the admin site::
+
+    from cms.admin.placeholderadmin import PlaceholderAdmin
+    from django.contrib import admin
+    from hvad.admin import TranslatableAdmin
+    from myapp.models import MultilingualExample1
+
+    class MultilingualModelAdmin(TranslatableAdmin, PlaceholderAdmin):
+        pass
+
+    admin.site.register(MultilingualExample1, MultilingualModelAdmin)
 
 Templates
 =========
@@ -107,6 +119,14 @@ typically achieved in Django applications by using :class:`RequestContext`::
             'object': object,
         }, context_instance=RequestContext(request))
 
+If you want to render plugins from a specific language, you can use the tag
+like this:
+
+.. code-block:: html+django
+
+    {% load placeholder_tags %}
+
+    {% render_placeholder mymodel_instance.my_placeholder language 'en' %}
 
 *******************************
 Adding content to a placeholder

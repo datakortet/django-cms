@@ -152,7 +152,6 @@ def post_save_user_group(instance, raw, created, **kwargs):
     creator = get_current_user()
     if not creator or not created or creator.is_anonymous():
         return
-    a = PageUserGroup()
     page_user = PageUserGroup(group_ptr_id=instance.pk, created_by=creator)
     page_user.__dict__.update(instance.__dict__)
     page_user.save()
@@ -197,7 +196,8 @@ def post_save_page(instance, **kwargs):
 
 
 def update_placeholders(instance, **kwargs):
-    instance.rescan_placeholders()
+    if not kwargs.get('raw'):
+        instance.rescan_placeholders()
 
 
 def invalidate_menu_cache(instance, **kwargs):

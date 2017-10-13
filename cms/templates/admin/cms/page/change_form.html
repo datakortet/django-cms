@@ -5,6 +5,9 @@
 
 {% block extrahead %}
 {{ block.super }}
+<script type="text/javascript">
+  var csrf_cookie_name = "{{CSRF_COOKIE_NAME|default:'csrftoken'}}";
+</script>
 <script type="text/javascript" src="{{ STATIC_URL }}cms/js/csrf.js"></script>
 <script type="text/javascript" src="{% url 'admin:jsi18n' %}"></script>
 
@@ -85,7 +88,7 @@
 	{% endif %}
 	{% if can_change and page.published and page.is_dirty %}<li><a href="revert/" class="revertlink">{% trans "Revert to public" %}</a></li>{% endif %}
 	<li><a href="history/" class="historylink">{% trans "History" %}</a></li>
-  	{% if page.publisher_public %}<li><a href="preview/?public=1&language={{ language }}">{% trans "View on site" %}</a></li>{% endif%}
+  	{% if page.publisher_public %}<li><a href="preview/?public=1&language={{ language }}" class="viewsitelink">{% trans "View on site" %}</a></li>{% endif%}
   </ul>
 {% endif %}{% endif %}
 {% endblock %}
